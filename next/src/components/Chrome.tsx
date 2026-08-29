@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import type { WorkLevel } from '@/lib/next-data'
+import type { ReactNode } from 'react'
+import { interruptEvent, type WorkLevel } from '@/lib/next-data'
+import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
 
 export function Brand({
@@ -14,7 +15,9 @@ export function Brand({
 }) {
   const classes = cn(
     'font-display inline-flex items-baseline tracking-tight text-foreground',
-    size === 'sm' ? 'text-xl font-semibold' : 'text-[clamp(3.5rem,11vw,7rem)] font-semibold leading-[0.9]',
+    size === 'sm'
+      ? 'text-xl font-semibold'
+      : 'text-[clamp(3.5rem,11vw,7rem)] font-semibold leading-[0.9]',
     className,
   )
 
@@ -30,12 +33,9 @@ export function Brand({
     </>
   )
 
-  if (!link) {
-    return <span className={classes}>{content}</span>
-  }
-
+  if (!link) return <span className={classes}>{content}</span>
   return (
-    <Link to="/" className={classes}>
+    <Link to="/home" className={classes}>
       {content}
     </Link>
   )
@@ -45,7 +45,9 @@ export function TopBar({ right }: { right?: ReactNode }) {
   return (
     <header className="relative z-10 mx-auto flex w-full max-w-3xl items-center justify-between px-6 pt-7 pb-2">
       <Brand />
-      <div className="flex items-center gap-4 text-xs text-muted-foreground">{right}</div>
+      <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 text-xs text-muted-foreground">
+        {right}
+      </div>
     </header>
   )
 }
@@ -70,8 +72,131 @@ export function LevelLabel({ level, className }: { level: WorkLevel; className?:
 
 export function Page({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <main className={cn('relative z-10 mx-auto w-full max-w-3xl px-6 pb-24', className)}>
+    <main className={cn('relative z-10 mx-auto w-full max-w-3xl px-6 pb-28', className)}>
       {children}
     </main>
+  )
+}
+
+export function NavLinks() {
+  return (
+    <>
+      <Link to="/morning" className="transition-colors hover:text-foreground">
+        Briefing
+      </Link>
+      <Link to="/role" className="transition-colors hover:text-foreground">
+        Role
+      </Link>
+      <Link to="/memory" className="transition-colors hover:text-foreground">
+        Memory
+      </Link>
+    </>
+  )
+}
+
+export function DemoBar() {
+  const { openInterrupt, enterMidday, resetDemo, state, progress } = useNext()
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-card/90 backdrop-blur-md">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center gap-2 px-4 py-2.5 text-[11px] text-muted-foreground sm:gap-3">
+        <span className="font-display text-[10px] tracking-[0.18em] text-urgent-foreground uppercase">
+          Prototype
+        </span>
+        <span className="hidden sm:inline">
+          {progress.done}/{progress.total} done
+          {state.replanApplied ? ' · replanned' : ''}
+        </span>
+        <div className="ml-auto flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={openInterrupt}
+            className="rounded-full border border-border px-3 py-1 transition-colors hover:border-urgent hover:text-urgent-foreground"
+          >
+            Simulate Slack interrupt
+          </button>
+          <button
+            type="button"
+            onClick={enterMidday}
+            className="rounded-full border border-border px-3 py-1 transition-colors hover:text-foreground"
+          >
+            Jump to mid-day
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              resetDemo()
+              window.location.hash = '#/'
+              window.location.reload()
+            }}
+            className="rounded-full border border-border px-3 py-1 transition-colors hover:text-foreground"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function InterruptModal() {
+  const { state, applyReplan, dismissInterrupt } = useNext()
+  if (!state.interruptOpen) return null
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-ink/35 p-4 backdrop-blur-[2px] sm:items-center">
+      <div className="animate-morph surface w-full max-w-lg rounded-3xl p-6 sm:p-8">
+        <p className="text-eyebrow text-urgent-foreground">Route changing</p>
+        <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+          Something just moved.
+        </h2>
+        <div className="mt-5 rounded-2xl bg-secondary/70 p-4">
+          <p className="text-[12px] tracking-wide text-muted-foreground uppercase">
+            {interruptEvent.from} · {interruptEvent.channel}
+          </p>
+          <p className="mt-2 text-[15px] leading-relaxed text-foreground">
+            “{interruptEvent.message}”
+          </p>
+        </div>
+        <p className="mt-5 text-[15px] leading-relaxed text-ink-soft">{interruptEvent.effect}</p>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <button
+            type="button"
+            onClick={applyReplan}
+            className="inline-flex h-12 flex-1 items-center justify-center rounded-xl bg-urgent px-5 font-display text-base font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)]"
+          >
+            Accept new route
+          </button>
+          <button
+            type="button"
+            onClick={dismissInterrupt}
+            className="inline-flex h-12 items-center justify-center rounded-xl border border-input px-5 text-sm text-ink-soft"
+          >
+            Keep current plan
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function CoachHint({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div className="animate-rise mb-8 rounded-2xl border border-urgent/30 bg-urgent/10 px-4 py-3 text-[13px] leading-relaxed text-urgent-foreground">
+      <div className="flex items-start justify-between gap-3">
+        <p>
+          <span className="font-medium">Prototype tip:</span> press the teal <strong>Next</strong>{' '}
+          button, make a decision in the workspace, then <strong>Done</strong>. After your first
+          task, watch the route replan.
+        </p>
+        <button
+          type="button"
+          onClick={onDismiss}
+          className="shrink-0 text-[11px] tracking-wide uppercase opacity-70 hover:opacity-100"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
   )
 }

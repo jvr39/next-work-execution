@@ -1,22 +1,20 @@
 # Next
 
-A work execution system that answers one question: **What should I do next?**
+Work execution prototype — answers **What should I do next?**
 
-## Run
+## For reviewers
+
+See [PROTOTYPE.md](./PROTOTYPE.md). Fast path:
 
 ```bash
-cd next
 npm install
 npm run dev
 ```
 
-Open the local URL Vite prints (usually `http://localhost:5173`).
+Then: **Enter Joe’s day** → **Start my day** → **Next** → decide → **Done** → accept the Slack interrupt once.
 
-## Flow
+Live (GitHub Pages): https://jvr39.github.io/next-work-execution/
 
-1. **Teach Me My Job** (`/onboarding`) — role model interview
-2. **Morning briefing** (`/morning`) — drafted day
-3. **Home** (`/`) — NOW + giant **Next** button + Up next
-4. **Task workspace** (`/task/:id`) — context, evidence, decisions, Done → next
+## Stack
 
-Mock data is for a CS director (Joe). Progress persists in `localStorage`.
+Vite · React · TypeScript · Tailwind · HashRouter (static-host friendly)

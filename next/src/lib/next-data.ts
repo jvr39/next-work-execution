@@ -27,6 +27,8 @@ export type Action = {
   effort: string
   level: WorkLevel
   responsibility: string
+  calendarConstraint?: string
+  brief?: string
   workspace: {
     objective: string
     context: { label: string; value: string; urgent?: boolean }[]
@@ -39,6 +41,7 @@ export type Action = {
 export const roleModel = {
   name: 'Joe',
   title: 'Director of Customer Success',
+  company: 'Northline',
   measuredBy: [
     'Net revenue retention',
     'Forecast accuracy',
@@ -71,25 +74,88 @@ export const roleModel = {
     {
       name: 'Jamie Okafor',
       relation: 'VP Customer Success — your manager',
+      priority: 'High',
+      prefs: 'Concise Slack. Risk before metrics.',
       note: 'Wants renewal risk flagged before it hits the board deck.',
+      cadence: '1:1 Thursday',
     },
     {
       name: 'Alex Rhee',
       relation: 'Direct report — CSM, mid-market',
+      priority: 'High',
+      prefs: 'Coaching in the moment, not after the fact.',
       note: 'Coaching topic: discovery questions on exec calls.',
+      cadence: 'Weekly 1:1 · Friday',
     },
     {
       name: 'Sarah Delgado',
       relation: 'Enterprise AE — owns Acme',
+      priority: 'Medium',
+      prefs: 'Escalates via Slack; expects same-day reply.',
       note: 'Asked you for exec sponsorship yesterday.',
+      cadence: 'Ad hoc · #acme-deal',
     },
     {
       name: 'James Whitfield',
       relation: 'Acme VP Operations — economic buyer',
+      priority: 'High',
+      prefs: 'No slides. Direct asks.',
       note: 'Went quiet after the Q3 usage dip.',
+      cadence: 'Customer calls as needed',
+    },
+    {
+      name: 'Priya Nair',
+      relation: 'Enterprise CSM — owns Acme day-to-day',
+      priority: 'Medium',
+      prefs: 'CRM notes before Slack.',
+      note: 'Silent since Tuesday — red flag for Acme.',
+      cadence: 'Daily stand-up',
     },
   ],
 }
+
+export const workGraph = {
+  name: 'Acme Renewal',
+  links: [
+    { label: 'Salesforce opportunity', value: 'OPP-18492 · Enterprise Renewal' },
+    { label: 'ARR', value: '$420,000' },
+    { label: 'Renewal date', value: 'September 24' },
+    { label: 'Health', value: 'Red' },
+    { label: 'CSM', value: 'Priya Nair' },
+    { label: 'AE', value: 'Sarah Delgado' },
+    { label: 'Last Gong', value: 'Yesterday 4:10 PM' },
+    { label: 'Slack', value: '#acme-deal · 14 unread' },
+    { label: 'Usage', value: '−22% WAU since Aug 4' },
+    { label: 'Open risk', value: 'Competitor evaluation named' },
+  ],
+}
+
+export const workMemory = [
+  {
+    title: 'How you decide',
+    body: 'You escalate enterprise risk when usage drops >15% and a competitor is named in the same week. You almost never escalate on sentiment alone.',
+  },
+  {
+    title: 'What Jamie cares about',
+    body: 'Forecast accuracy first. Customer color second. She reads Slack before email and hates surprise board-deck risk.',
+  },
+  {
+    title: 'Your communication pattern',
+    body: 'Customer messages: short, ownership-forward, one clear ask. Internal: bullets, then the ask.',
+  },
+  {
+    title: 'Time estimates',
+    body: 'You take ~1.4× longer on coaching 1:1s than you schedule. Escalation drafts you approve in under 4 minutes when evidence is pre-pulled.',
+  },
+  {
+    title: 'Recurring blind spots',
+    body: 'You defer CRM hygiene until Friday — then it collides with forecast. I surface one hygiene pass mid-week now.',
+  },
+  {
+    title: 'Safe to automate',
+    body: 'Account briefs, Gong excerpts, forecast delta tables, routine customer recaps. You still want the pen on pricing and exec escalations.',
+  },
+]
 
 export const briefing = {
   greeting: 'Good morning, Joe.',
@@ -99,6 +165,7 @@ export const briefing = {
   biggestChange: "Acme's renewal is now at risk.",
   rearranged: "I've rearranged your afternoon accordingly.",
   finishBy: '4:20 PM',
+  nextMeeting: { time: '11:30', label: 'Team forecast review', minutesUntil: 32 },
   timeline: [
     { time: '9:15', label: 'Review Acme renewal risk', tag: 'moved up', urgent: true },
     { time: '9:40', label: 'Approve Globex QBR follow-up', tag: 'AI prepared' },
@@ -109,6 +176,33 @@ export const briefing = {
     { time: '1:30', label: 'Investigate Globex adoption decline', tag: 'moved down' },
   ],
 }
+
+export const interruptEvent = {
+  id: 'acme-churn-threat',
+  from: 'Sarah Delgado',
+  channel: 'Slack · #acme-deal',
+  message:
+    'James just said they will not renew without exec air cover this week. Need you now — not after forecast.',
+  effect:
+    "I've moved Acme to the front and pushed Globex adoption to after lunch. Your 11:30 forecast review still stands.",
+  newOrder: [
+    'acme-renewal-risk',
+    'forecast-review',
+    'approve-responses',
+    'one-on-one-alex',
+    'globex-qbr-followup',
+    'globex-adoption',
+  ] as string[],
+}
+
+export const defaultOrder = [
+  'acme-renewal-risk',
+  'globex-qbr-followup',
+  'forecast-review',
+  'approve-responses',
+  'one-on-one-alex',
+  'globex-adoption',
+] as string[]
 
 export const queue: Action[] = [
   {
@@ -125,6 +219,9 @@ export const queue: Action[] = [
     effort: '20 min',
     level: 'you-do-this',
     responsibility: 'Customer retention',
+    calendarConstraint: '32 min before forecast review',
+    brief:
+      'Acme is a 4-year customer. Ops lead churned Aug 4; usage followed. Competitor X named yesterday for the first time. Priya went dark Tuesday after promising a health note. Sarah needs exec sponsorship before James will take another meeting.',
     workspace: {
       objective: 'Determine whether Acme needs executive intervention.',
       context: [
@@ -134,7 +231,7 @@ export const queue: Action[] = [
         { label: 'Last call', value: 'Yesterday, 4:10 PM' },
       ],
       changed: [
-        'Competitor named on yesterday\'s call for the first time in 11 months.',
+        "Competitor named on yesterday's call for the first time in 11 months.",
         'Weekly active usage down 22% across the ops team since Aug 4.',
         'Sarah (AE) requested an executive sponsor in #acme-deal at 7:52 AM.',
       ],
@@ -169,13 +266,23 @@ export const queue: Action[] = [
             title: 'Slack update to James Whitfield',
             channel: "Slack DM · drafted from Gong, usage data, and Sarah's notes",
             body: "James — I reviewed yesterday's call and our usage data together. Two things stood out: your ops team lost their power user in early August, and workflow runs are down 22% since. That's on us to fix, not on you to absorb.\n\nI'd like to bring Jamie (our VP of CS) and put a re-onboarding plan in front of you Thursday — 25 minutes, no slides. If the plan doesn't clear the bar, we'll talk about the renewal on your terms.",
-            evidence: ['Gong excerpt 01:42–03:10', 'Usage trend, Aug 4 – Sept 1', "Priya's CSM note (Tue)"],
+            evidence: [
+              'Gong excerpt 01:42–03:10',
+              'Usage trend, Aug 4 – Sept 1',
+              "Priya's CSM note (Tue)",
+            ],
           },
         },
         {
           id: 'ask-csm',
           label: 'Ask CSM for more info',
           hint: 'Send Priya three specific questions before you commit exec time.',
+          prepared: {
+            title: 'Questions for Priya',
+            channel: 'Slack DM · drafted',
+            body: "Priya — before I loop Jamie: (1) Has James named a decision date? (2) Who replaced the ops lead on the workflow builder? (3) Any product ask we haven't logged? Need this by 11 so I can still protect forecast.",
+            evidence: ['Last CSM note Tue', '#acme-deal thread'],
+          },
         },
         {
           id: 'customer-call',
@@ -203,6 +310,9 @@ export const queue: Action[] = [
     effort: '10 min',
     level: 'ai-prepared',
     responsibility: 'Cross-functional',
+    calendarConstraint: 'Fits before 11:30 with 8 min buffer',
+    brief:
+      'Alex ran his first solo exec QBR. Globex asked for a reporting fix date and nobody answered live. Product confirmed Sept 18. You own the credibility of the promise.',
     workspace: {
       objective: 'Get a credible commitment in front of Globex before their board review.',
       context: [
@@ -266,6 +376,9 @@ export const queue: Action[] = [
     effort: '30 min',
     level: 'you-do-this',
     responsibility: 'Forecasting',
+    calendarConstraint: 'Fixed meeting · room 4B + Zoom',
+    brief:
+      'Commit drifted −$230K week over week. Acme out, Initech in. Three CSMs changed categories without notes — ask live. Jamie needs a number she can defend Thursday.',
     workspace: {
       objective: "Leave the meeting with a commit number you'd defend to the board.",
       context: [
@@ -323,6 +436,9 @@ export const queue: Action[] = [
     effort: '15 min',
     level: 'ai-prepared',
     responsibility: 'Customer retention',
+    calendarConstraint: 'After lunch · before Alex 1:1',
+    brief:
+      'Two routine replies are safe. Vandelay turned into pricing overnight — that one stays in your hands.',
     workspace: {
       objective: 'Clear the response queue without letting a pricing answer go out unsupervised.',
       context: [
@@ -377,12 +493,15 @@ export const queue: Action[] = [
     steps: [
       'Play the 2-minute Globex clip where the exec question got dropped.',
       "Ask Alex what he'd ask differently, before you offer your version.",
-      'Agree one measurable thing for next week\'s call.',
+      "Agree one measurable thing for next week's call.",
       "I'll log the coaching note when you're done.",
     ],
     effort: '30 min',
     level: 'you-do-this',
     responsibility: 'Team management',
+    calendarConstraint: 'Protected 1:1 · do not skip',
+    brief:
+      'Same coaching topic three weeks running. Yesterday was his first solo exec QBR — use the clip, not a lecture. Leave with one practice rep scheduled.',
     workspace: {
       objective: "Move Alex's discovery skill from talked-about to practiced.",
       context: [
@@ -412,7 +531,7 @@ export const queue: Action[] = [
           prepared: {
             title: 'Coaching note for Alex',
             channel: 'Note · drafted from your 1:1',
-            body: 'Focus: exec discovery. Practice rep — on Thursday\'s Initech call, ask one business-outcome question before any feature talk, then stop and let silence do the work. We review the clip together Friday.',
+            body: "Focus: exec discovery. Practice rep — on Thursday's Initech call, ask one business-outcome question before any feature talk, then stop and let silence do the work. We review the clip together Friday.",
             evidence: ['Globex QBR clip', 'Coaching history (3 sessions)'],
           },
         },
@@ -438,6 +557,9 @@ export const queue: Action[] = [
     effort: '30 min',
     level: 'you-do-this',
     responsibility: 'Customer retention',
+    calendarConstraint: 'Open block after Alex',
+    brief:
+      'Finance usage collapsed after the Aug 19 permission change. Pattern matches your last two quiet churns. Name the cause before renewal season.',
     workspace: {
       objective: 'Name the cause of the decline before it becomes a renewal conversation.',
       context: [
@@ -488,6 +610,11 @@ export const queue: Action[] = [
   },
 ]
 
+export const actionsById = Object.fromEntries(queue.map((a) => [a.id, a])) as Record<
+  string,
+  Action
+>
+
 export const accountabilityOptions = [
   'Manage CSMs',
   'Forecast renewals',
@@ -507,4 +634,23 @@ export const meetingOptions = [
   'Monthly business review with Jamie',
   'Customer QBRs',
   'Hiring loops',
+]
+
+export const prototypeGuide = [
+  {
+    title: 'One question',
+    body: 'Everything exists to answer: what should I do next? Resist looking for a dashboard.',
+  },
+  {
+    title: 'Press Next',
+    body: 'Enter the workspace. Read the evidence. Make a decision. Approve anything AI prepared.',
+  },
+  {
+    title: 'Press Done',
+    body: 'The route updates. Try the “Simulate Slack interrupt” control once — that’s the Waze moment.',
+  },
+  {
+    title: 'Look under the hood',
+    body: 'Role, Stakeholders, and Memory show the model that makes priorities feel personal.',
+  },
 ]

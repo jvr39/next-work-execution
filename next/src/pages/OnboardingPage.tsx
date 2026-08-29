@@ -3,16 +3,20 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import { Brand, Page, TopBar } from '@/components/Chrome'
 import { accountabilityOptions, meetingOptions, roleModel } from '@/lib/next-data'
-import { useNextState } from '@/lib/next-store'
+import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
 
 const steps = ['Accountability', 'Measurement', 'People', 'Rhythm', 'Model'] as const
 
 export function OnboardingPage() {
   const navigate = useNavigate()
-  const { update } = useNextState()
+  const { update } = useNext()
   const [step, setStep] = useState(0)
-  const [picked, setPicked] = useState(['Manage CSMs', 'Forecast renewals', 'Escalate customer risk'])
+  const [picked, setPicked] = useState([
+    'Manage CSMs',
+    'Forecast renewals',
+    'Escalate customer risk',
+  ])
   const [custom, setCustom] = useState('')
   const [measured, setMeasured] = useState(
     'Net revenue retention, forecast accuracy, and team attrition.',
@@ -35,15 +39,24 @@ export function OnboardingPage() {
     <>
       <TopBar
         right={
-          <span>
-            Step {Math.min(step + 1, steps.length)} of {steps.length}
-          </span>
+          <button
+            type="button"
+            onClick={() => {
+              update({ seenLanding: true, onboarded: true, dayStarted: false })
+              navigate('/morning')
+            }}
+            className="transition-colors hover:text-foreground"
+          >
+            Skip · use Joe&apos;s model
+          </button>
         }
       />
       <Page>
         <div className="pt-8">
           {step === 0 && <Brand size="hero" link={false} className="select-none" />}
-          <p className={cn('text-eyebrow', step === 0 ? 'mt-8' : 'mt-2')}>Teach me my job</p>
+          <p className={cn('text-eyebrow', step === 0 ? 'mt-8' : 'mt-2')}>
+            Teach me my job · Step {Math.min(step + 1, steps.length)} of {steps.length}
+          </p>
         </div>
 
         <div key={step} className="animate-rise mt-6">
@@ -88,7 +101,9 @@ export function OnboardingPage() {
                   <button
                     key={m}
                     type="button"
-                    onClick={() => setMeasured((prev) => (prev.includes(m) ? prev : `${prev} ${m}.`))}
+                    onClick={() =>
+                      setMeasured((prev) => (prev.includes(m) ? prev : `${prev} ${m}.`))
+                    }
                     className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     + {m}
@@ -133,8 +148,8 @@ export function OnboardingPage() {
                 Based on the past 90 days, here&apos;s my understanding of your job.
               </h1>
               <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
-                {roleModel.title} · reporting to {manager.split(',')[0]}. Correct anything that&apos;s
-                off — I&apos;ll re-weight what I surface first.
+                {roleModel.title} · reporting to {manager.split(',')[0]}. Correct anything
+                that&apos;s off — I&apos;ll re-weight what I surface first.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -203,7 +218,7 @@ export function OnboardingPage() {
             <button
               type="button"
               onClick={() => {
-                update({ onboarded: true, queueIndex: 0 })
+                update({ seenLanding: true, onboarded: true, dayStarted: false })
                 navigate('/morning')
               }}
               className="group inline-flex h-16 items-center gap-3 rounded-2xl bg-urgent px-9 font-display text-xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform hover:-translate-y-0.5"

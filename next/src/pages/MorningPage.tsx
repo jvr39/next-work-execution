@@ -1,13 +1,19 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Brand, Page, TopBar } from '@/components/Chrome'
 import { briefing } from '@/lib/next-data'
-import { useNextState } from '@/lib/next-store'
+import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
 
 export function MorningPage() {
   const navigate = useNavigate()
-  const { update } = useNextState()
+  const { state, hydrated, update } = useNext()
+
+  useEffect(() => {
+    if (!hydrated) return
+    if (!state.seenLanding) navigate('/')
+  }, [hydrated, state.seenLanding, navigate])
 
   return (
     <>
@@ -19,8 +25,8 @@ export function MorningPage() {
 
           <h1 className="font-display mt-4 max-w-3xl text-[clamp(1.9rem,4.6vw,2.9rem)] font-semibold leading-[1.12] tracking-tight">
             {briefing.greeting} You have{' '}
-            <span className="text-urgent-foreground">{briefing.usableTime}</span> of usable work time
-            today.
+            <span className="text-urgent-foreground">{briefing.usableTime}</span> of usable work
+            time today.
           </h1>
 
           <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-ink-soft">
@@ -34,7 +40,10 @@ export function MorningPage() {
           <p className="text-eyebrow">Your day, as drafted</p>
           <ul className="mt-5">
             {briefing.timeline.map((item) => (
-              <li key={item.label} className="flex items-baseline gap-5 border-b border-border py-4">
+              <li
+                key={item.label}
+                className="flex items-baseline gap-5 border-b border-border py-4"
+              >
                 <span className="font-display w-14 shrink-0 text-sm text-muted-foreground">
                   {item.time}
                 </span>
@@ -59,15 +68,15 @@ export function MorningPage() {
           </ul>
 
           <p className="mt-6 text-sm text-muted-foreground">
-            Everything else — research, drafting, data cleanup — I&apos;m handling in the background.
-            You&apos;ll only see it when it needs your approval.
+            Everything else — research, drafting, data cleanup — I&apos;m handling in the
+            background. You&apos;ll only see it when it needs your approval.
           </p>
 
           <button
             type="button"
             onClick={() => {
-              update({ onboarded: true })
-              navigate('/')
+              update({ seenLanding: true, onboarded: true, dayStarted: true })
+              navigate('/home')
             }}
             className="group mt-10 inline-flex items-center gap-3 rounded-2xl bg-urgent px-10 py-5 font-display text-2xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform duration-200 hover:-translate-y-0.5"
           >

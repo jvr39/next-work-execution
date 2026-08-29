@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   ArrowRight,
@@ -10,9 +10,9 @@ import {
   Play,
   X,
 } from 'lucide-react'
-import { LevelLabel, Page, TopBar } from '@/components/Chrome'
-import { queue, type Evidence } from '@/lib/next-data'
-import { currentAction, useNextState } from '@/lib/next-store'
+import { LevelLabel, NavLinks, Page, TopBar } from '@/components/Chrome'
+import { actionsById, type Evidence } from '@/lib/next-data'
+import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
 
 const icons: Record<Evidence['kind'], typeof Play> = {
@@ -26,10 +26,31 @@ const icons: Record<Evidence['kind'], typeof Play> = {
 export function TaskPage() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { state, completeAction } = useNextState()
-  const action = queue.find((a) => a.id === id)
+  const { current, upcoming, completeAction } = useNext()
+  const action = id ? actionsById[id] : undefined
   const [chosen, setChosen] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
+  const [briefOpen, setBriefOpen] = useState(true)
+
+  useEffect(() => {
+    setChosen(null)
+    setSent(false)
+    setBriefOpen(true)
+  }, [id])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
+      if (e.key === 'd' || e.key === 'D') {
+        if (!action) return
+        completeAction(action.id, chosen ?? undefined)
+        navigate('/home')
+      }
+      if (e.key === 'Escape') navigate('/home')
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [action, chosen, completeAction, navigate])
 
   if (!action) {
     return (
@@ -37,7 +58,7 @@ export function TaskPage() {
         <p className="font-display text-2xl">That action isn&apos;t in today&apos;s queue.</p>
         <button
           type="button"
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="mt-6 text-urgent-foreground underline-offset-4 hover:underline"
         >
           Back to Now
@@ -47,19 +68,22 @@ export function TaskPage() {
   }
 
   const option = action.workspace.options.find((o) => o.id === chosen) ?? null
-  const nextUp = currentAction(state.queueIndex + 1)
+  const nextUp = upcoming[0] ?? (current?.id !== action.id ? current : null)
 
   return (
     <>
       <TopBar
         right={
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-          >
-            <X className="size-3.5" /> Close workspace
-          </button>
+          <>
+            <NavLinks />
+            <button
+              type="button"
+              onClick={() => navigate('/home')}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+            >
+              <X className="size-3.5" /> Close
+            </button>
+          </>
         }
       />
       <Page className="animate-morph">
@@ -88,6 +112,23 @@ export function TaskPage() {
           ))}
         </div>
 
+        {action.brief && (
+          <section className="mt-10">
+            <button
+              type="button"
+              onClick={() => setBriefOpen((v) => !v)}
+              className="text-eyebrow transition-colors hover:text-foreground"
+            >
+              Account brief {briefOpen ? '−' : '+'}
+            </button>
+            {briefOpen && (
+              <p className="animate-rise mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+                {action.brief}
+              </p>
+            )}
+          </section>
+        )}
+
         <section className="mt-12">
           <p className="text-eyebrow">What changed</p>
           <ul className="mt-3 space-y-2.5">
@@ -106,11 +147,13 @@ export function TaskPage() {
             {action.workspace.evidence.map((e) => {
               const Icon = icons[e.kind]
               return (
-                <li key={e.label} className="group flex cursor-pointer items-start gap-4 py-4">
+                <li key={e.label} className="group flex cursor-default items-start gap-4 py-4">
                   <Icon className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-urgent-foreground" />
                   <div>
                     <p className="text-[14px] text-foreground">{e.label}</p>
-                    <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">{e.detail}</p>
+                    <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">
+                      {e.detail}
+                    </p>
                   </div>
                 </li>
               )
@@ -170,12 +213,7 @@ export function TaskPage() {
                   <Check className="size-4" />
                   {sent ? 'Sent as you' : 'Approve & send'}
                 </button>
-                <button
-                  type="button"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Edit before sending
-                </button>
+                <span className="text-sm text-muted-foreground">Edit before sending (demo)</span>
               </div>
             </div>
           </section>
@@ -189,13 +227,21 @@ export function TaskPage() {
 
         <div className="hairline mt-16 flex flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-muted-foreground">
-            Next up when you finish: <span className="text-foreground">{nextUp.title}</span>
+            {nextUp ? (
+              <>
+                Next up when you finish:{' '}
+                <span className="text-foreground">{nextUp.title}</span>
+              </>
+            ) : (
+              'This is the last critical item.'
+            )}
+            <span className="mt-1 block text-[12px]">Keyboard: D done · Esc close</span>
           </p>
           <button
             type="button"
             onClick={() => {
-              completeAction(action.id)
-              navigate('/')
+              completeAction(action.id, chosen ?? undefined)
+              navigate('/home')
             }}
             className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-primary px-10 font-display text-2xl font-semibold text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
           >
