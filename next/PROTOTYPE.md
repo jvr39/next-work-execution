@@ -6,15 +6,18 @@ Not a to-do app. A click-through of Joe’s day as a CS director — role model,
 
 ## Share this link
 
-After deploy (see below), send reviewers:
+**Live prototype:** https://jvr39.github.io/next-work-execution/
 
-1. Open the link  
-2. Tap **Enter Joe’s day**  
-3. **Start my day** → press **Next** → decide → **Done**  
-4. After the first task, accept the Slack interrupt  
-5. Peek at **Role** and **Memory** in the header  
+Send reviewers that URL. Then:
 
-~8 minutes. Prototype controls live in the bottom bar.
+1. Tap **Enter Joe’s day**  
+2. **Start my day** → press **Next** → decide → **Done**  
+3. After the first task, accept the Slack interrupt  
+4. Peek at **Role** and **Memory** in the header  
+
+~8 minutes. Prototype controls live in the bottom bar (simulate interrupt, jump mid-day, reset).
+
+Repo: https://github.com/jvr39/next-work-execution
 
 ## Run locally
 

@@ -95,7 +95,8 @@ export function NavLinks() {
 }
 
 export function DemoBar() {
-  const { openInterrupt, enterMidday, resetDemo, state, progress } = useNext()
+  const { openInterrupt, enterMidday, resetDemo, state, progress, hydrated } = useNext()
+  if (!hydrated || !state.seenLanding) return null
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-card/90 backdrop-blur-md">
