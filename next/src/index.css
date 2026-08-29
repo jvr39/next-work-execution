@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Sora", ui-sans-serif, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-urgent: var(--urgent);
+  --color-urgent-foreground: var(--urgent-foreground);
+
+  --animate-rise: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-rise-slow: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-morph: morph 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-handoff: handoff 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-breathe: breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes morph {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes handoff {
+  0% {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+:root {
+  --ink: oklch(0.24 0.021 250);
+  --ink-soft: oklch(0.44 0.021 250);
+  --background: oklch(0.965 0.011 235);
+  --foreground: oklch(0.24 0.021 250);
+  --card: oklch(0.99 0.006 235 / 78%);
+  --muted: oklch(0.93 0.012 235);
+  --muted-foreground: oklch(0.5 0.019 250);
+  --secondary: oklch(0.93 0.014 240);
+  --border: oklch(0.24 0.021 250 / 12%);
+  --input: oklch(0.24 0.021 250 / 16%);
+  --primary: oklch(0.24 0.021 250);
+  --primary-foreground: oklch(0.97 0.01 235);
+  --urgent: oklch(0.66 0.135 195);
+  --urgent-foreground: oklch(0.17 0.03 220);
+
+  --gradient-dawn:
+    radial-gradient(120% 90% at 12% 0%, oklch(0.98 0.017 230) 0%, transparent 60%),
+    radial-gradient(100% 80% at 100% 8%, oklch(0.94 0.036 165 / 70%) 0%, transparent 62%),
+    linear-gradient(178deg, oklch(0.968 0.012 238) 0%, oklch(0.945 0.019 205) 55%, oklch(0.955 0.026 155) 100%);
+  --shadow-lift: 0 24px 60px -34px oklch(0.24 0.021 250 / 34%);
+  --shadow-urgent: 0 18px 44px -20px oklch(0.66 0.135 195 / 55%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    background-image: var(--gradient-dawn);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: radial-gradient(oklch(0.24 0.021 250 / 7%) 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+@utility surface {
+  background-color: var(--color-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lift);
+}
+
+@utility hairline {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility animate-rise {
+  animation: var(--animate-rise);
+}
+
+@utility animate-rise-slow {
+  animation: var(--animate-rise-slow);
+}
+
+@utility animate-morph {
+  animation: var(--animate-morph);
+}
+
+@utility animate-handoff {
+  animation: var(--animate-handoff);
+}
+
+@utility animate-breathe {
+  animation: var(--animate-breathe);
+}
