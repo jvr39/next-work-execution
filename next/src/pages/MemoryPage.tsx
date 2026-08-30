@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { NavLinks, Page, TopBar } from '@/components/Chrome'
+import { InspectLinks, Page, TopBar } from '@/components/Chrome'
 import { workMemory } from '@/lib/next-data'
 import { useNext } from '@/lib/next-store'
 
@@ -9,7 +9,7 @@ export function MemoryPage() {
 
   return (
     <>
-      <TopBar right={<NavLinks />} />
+      <TopBar right={<InspectLinks />} />
       <Page>
         <div className="animate-rise pt-8">
           <p className="text-eyebrow">Work memory</p>
@@ -17,8 +17,8 @@ export function MemoryPage() {
             What Next learns about Joe over time.
           </h1>
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-            After six months this is the moat — not the integrations. Seeded memories below; your
-            prototype decisions appear as they happen.
+            How Next learns Joe&apos;s judgment over time — so priorities feel personal. Seeded
+            memories below; your prototype decisions appear as they happen.
           </p>
         </div>
 

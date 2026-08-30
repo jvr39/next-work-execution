@@ -1,15 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import {
-  Brand,
-  CoachHint,
-  LevelLabel,
-  NavLinks,
-  Page,
-  TopBar,
-} from '@/components/Chrome'
-import { briefing } from '@/lib/next-data'
+import { Brand, CoachHint, InspectLinks, Page, TopBar } from '@/components/Chrome'
 import { useNext } from '@/lib/next-store'
 
 export function HomePage() {
@@ -20,12 +12,12 @@ export function HomePage() {
     current,
     upcoming,
     dayComplete,
-    progress,
     skipAction,
     clearHandoff,
     update,
   } = useNext()
   const [key, setKey] = useState(0)
+  const [showRoute, setShowRoute] = useState(false)
 
   useEffect(() => {
     if (!hydrated) return
@@ -36,11 +28,12 @@ export function HomePage() {
 
   useEffect(() => {
     setKey((k) => k + 1)
+    setShowRoute(false)
   }, [current?.id, state.replanApplied])
 
   useEffect(() => {
     if (!state.justAdvanced) return
-    const t = window.setTimeout(clearHandoff, 2200)
+    const t = window.setTimeout(clearHandoff, 1400)
     return () => window.clearTimeout(t)
   }, [state.justAdvanced, clearHandoff])
 
@@ -61,25 +54,44 @@ export function HomePage() {
   if (dayComplete) {
     return (
       <>
-        <TopBar right={<NavLinks />} />
+        <TopBar right={<InspectLinks />} />
         <Page>
           <div className="animate-rise pt-10">
             <Brand size="hero" link={false} className="select-none" />
             <div className="mt-12 flex items-start gap-4">
               <CheckCircle2 className="mt-1 size-8 text-urgent-foreground" />
               <div>
-                <p className="text-eyebrow text-urgent-foreground">Day complete</p>
+                <p className="text-eyebrow text-urgent-foreground">Enough for today</p>
                 <h1 className="font-display mt-3 text-[clamp(2rem,5vw,3rem)] font-semibold leading-tight tracking-tight">
                   Critical work is cleared.
                 </h1>
                 <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-ink-soft">
-                  You finished {progress.total} things that actually needed you. Background work —
-                  briefs, drafts, data pulls — stayed invisible. That&apos;s the product.
+                  Not inbox zero — judgment. Here&apos;s the receipt from Joe&apos;s day
+                  (illustrative prototype numbers).
                 </p>
-                <p className="mt-6 text-sm text-muted-foreground">
-                  {state.replanApplied
-                    ? 'You also felt a mid-day replan — the Waze moment.'
-                    : 'Try Reset + Simulate Slack interrupt next time to feel the replan.'}
+
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {[
+                    ['6', 'judgment calls completed'],
+                    ['47 min', 'of admin avoided'],
+                    ['4', 'systems updated automatically'],
+                    ['3', 'drafts prepared'],
+                    ['1', 'urgent risk caught before forecast'],
+                    ['82 min', 'of focus time preserved'],
+                  ].map(([n, label]) => (
+                    <li
+                      key={label}
+                      className="rounded-2xl border border-border/80 bg-card/50 px-4 py-3"
+                    >
+                      <p className="font-display text-2xl text-urgent-foreground">{n}</p>
+                      <p className="mt-1 text-sm text-ink-soft">{label}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-8 text-sm text-muted-foreground">
+                  Next ran Joe&apos;s day 18 of the last 20 workdays.
+                  {state.replanApplied ? ' Mid-day replan accepted.' : ''}
                 </p>
               </div>
             </div>
@@ -91,13 +103,15 @@ export function HomePage() {
 
   if (!current) return null
 
+  const afterThis = upcoming[0]
+
   return (
     <>
-      <TopBar right={<NavLinks />} />
+      <TopBar right={<InspectLinks />} />
       <Page>
         <div key={key} className={state.justAdvanced ? 'animate-handoff' : 'animate-rise'}>
-          <div className="pt-6 sm:pt-10">
-            <Brand size="hero" link={false} className="select-none" />
+          <div className="pt-10 sm:pt-14">
+            <Brand link={false} className="select-none" />
           </div>
 
           {!state.coachDismissed && (
@@ -108,98 +122,64 @@ export function HomePage() {
 
           {state.justAdvanced && (
             <p className="mt-6 text-sm text-urgent-foreground">
-              {state.replanApplied && progress.done <= 2
-                ? 'Route updated. Onto the next thing.'
-                : 'Onto the next thing.'}
+              {state.replanApplied ? 'Route updated. Onto the next thing.' : 'Onto the next thing.'}
             </p>
           )}
 
-          <section className="mt-10">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <span className="text-eyebrow text-urgent-foreground">Now</span>
-              <span className="font-display text-sm text-ink-soft">{current.window}</span>
-              <LevelLabel level={current.level} />
-            </div>
-
-            <h1 className="font-display mt-4 text-[clamp(2rem,5.5vw,3.25rem)] font-semibold leading-[1.05] tracking-tight">
+          <section className="mt-12 max-w-xl">
+            <h1 className="font-display text-[clamp(2rem,5.5vw,3.1rem)] font-semibold leading-[1.05] tracking-tight">
               {current.title}
             </h1>
-
-            {current.calendarConstraint && (
-              <p className="mt-3 text-sm text-muted-foreground">
-                Calendar · <span className="text-foreground">{current.calendarConstraint}</span>
-              </p>
-            )}
-
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
-              <span className="text-eyebrow mr-2 align-middle">Why</span>
-              {current.why}
+            <p className="mt-5 text-[16px] leading-relaxed text-ink-soft">{current.why}</p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Estimated time:{' '}
+              <span className="text-foreground">{current.effort}</span>
             </p>
 
-            <div className="mt-8">
-              <p className="text-eyebrow">Do this</p>
-              <ol className="mt-3 space-y-3">
-                {current.steps.map((step, i) => (
-                  <li key={step} className="flex gap-4 text-[15px] leading-relaxed">
-                    <span className="font-display mt-0.5 w-5 shrink-0 text-right text-sm text-urgent-foreground">
-                      {i + 1}
-                    </span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <p className="mt-7 text-sm text-muted-foreground">
-              Estimated effort <span className="text-foreground">{current.effort}</span> · counts
-              toward {current.responsibility.toLowerCase()} · {progress.done}/{progress.total} today
-            </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <button
                 type="button"
                 onClick={() => navigate(`/task/${current.id}`)}
-                className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-10 font-display text-2xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 sm:h-20 sm:min-w-48 sm:text-3xl"
+                className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-10 font-display text-2xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Next
+                Start
                 <ArrowRight className="size-6 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
               <button
                 type="button"
                 onClick={skipAction}
-                className="inline-flex h-16 items-center justify-center rounded-2xl border border-input px-8 font-display text-lg text-ink-soft transition-colors hover:bg-secondary/70 sm:h-20"
+                className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
               >
-                Not now — skip
+                Not this
               </button>
             </div>
-            <p className="mt-3 text-[12px] text-muted-foreground">Keyboard: N start · S skip</p>
-          </section>
 
-          <section className="mt-16">
-            <p className="text-eyebrow">Up next</p>
-            <ul className="mt-4 divide-y divide-border">
-              {upcoming.length === 0 ? (
-                <li className="py-3 text-[15px] text-ink-soft">
-                  Last item in the route — finish this and you&apos;re clear.
-                </li>
-              ) : (
-                upcoming.map((item) => (
-                  <li key={item.id} className="flex items-baseline gap-5 py-3 text-[15px]">
-                    <span className="font-display w-24 shrink-0 text-sm text-muted-foreground">
-                      {item.window.split('–')[0]}
-                    </span>
-                    <span className="text-ink-soft">{item.title}</span>
-                  </li>
-                ))
-              )}
-            </ul>
-          </section>
+            {afterThis ? (
+              <p className="mt-8 text-sm text-muted-foreground">
+                After this:{' '}
+                <span className="text-foreground">{afterThis.title}</span>
+              </p>
+            ) : (
+              <p className="mt-8 text-sm text-muted-foreground">Last item in the route.</p>
+            )}
 
-          <p className="hairline mt-12 pt-6 text-sm text-muted-foreground">
-            {briefing.nextMeeting.minutesUntil} min before {briefing.nextMeeting.time}{' '}
-            {briefing.nextMeeting.label}. On track for critical work by{' '}
-            <span className="text-foreground">{briefing.finishBy}</span>.
-          </p>
+            <button
+              type="button"
+              onClick={() => setShowRoute((v) => !v)}
+              className="mt-6 text-[12px] tracking-wide text-muted-foreground uppercase transition-colors hover:text-foreground"
+            >
+              {showRoute ? 'Hide today’s route' : 'See today’s route'}
+            </button>
+
+            {showRoute && (
+              <ul className="mt-4 space-y-2 border-l border-border pl-4 text-sm text-ink-soft">
+                <li className="text-foreground">{current.title} · now</li>
+                {upcoming.map((item) => (
+                  <li key={item.id}>{item.title}</li>
+                ))}
+              </ul>
+            )}
+          </section>
         </div>
       </Page>
     </>

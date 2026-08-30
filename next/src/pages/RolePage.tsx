@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { NavLinks, Page, TopBar } from '@/components/Chrome'
+import { InspectLinks, Page, TopBar } from '@/components/Chrome'
 import { roleModel, workGraph } from '@/lib/next-data'
 
 export function RolePage() {
   return (
     <>
-      <TopBar right={<NavLinks />} />
+      <TopBar right={<InspectLinks />} />
       <Page>
         <div className="animate-rise pt-8">
           <p className="text-eyebrow">Role model</p>

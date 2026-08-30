@@ -17,7 +17,7 @@ export function MorningPage() {
 
   return (
     <>
-      <TopBar right={<span>Saturday · 7:12 AM</span>} />
+      <TopBar right={<span>Today · 7:12 AM · demo</span>} />
       <Page>
         <div className="animate-rise pt-8">
           <Brand size="hero" link={false} className="select-none" />

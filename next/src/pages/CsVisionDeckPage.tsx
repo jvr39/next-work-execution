@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Check, Filter } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { Brand } from '@/components/Chrome'
-import { csVisionSlides, ticketRows, type VisionSlide } from '@/lib/cs-vision-deck'
+import { csVisionSlides, type VisionSlide } from '@/lib/cs-vision-deck'
 import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
 
@@ -175,13 +175,14 @@ function MockInterrupt() {
     <MockShell label="Slack · #acme-deal">
       <p className="text-[11px] text-white/40">Sarah Delgado · just now</p>
       <p className="mt-3 text-lg leading-snug text-white">
-        James just said they will not renew without exec air cover this week. Need you now — not
-        after forecast.
+        New: James forwarded a thread — Competitor X bake-off Friday. Need a one-page save plan for
+        Jamie before forecast.
       </p>
       <div className="mt-6 rounded-xl border border-amber-300/25 bg-amber-300/10 p-4">
         <p className="text-[11px] tracking-wider text-amber-100/80 uppercase">Replan?</p>
         <p className="mt-1 text-sm text-white/85">
-          Move Acme to the front. Keep 11:30 forecast. Push Globex adoption after lunch.
+          Insert <strong className="text-white">Prep Acme exec save plan</strong> as Next. Keep
+          11:30 forecast. Push lower work later.
         </p>
         <div className="mt-4 flex gap-2">
           <span className="rounded-full bg-white px-4 py-2 text-sm font-medium text-[#0c1218]">
@@ -191,52 +192,6 @@ function MockInterrupt() {
             Keep plan
           </span>
         </div>
-      </div>
-    </MockShell>
-  )
-}
-
-function MockTickets() {
-  return (
-    <MockShell label="Support · unresolved on your book">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="font-display text-xl text-white">Open tickets</p>
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-1 text-[11px] text-white/65">
-          <Filter className="size-3" /> Needs CSM eyes
-        </span>
-      </div>
-      <div className="mt-4 space-y-2">
-        {ticketRows.map((t) => (
-          <div
-            key={t.id}
-            className={cn(
-              'rounded-xl border px-3 py-3',
-              t.csm
-                ? 'border-rose-300/35 bg-rose-400/10'
-                : 'border-white/8 bg-white/[0.03]',
-            )}
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <p className="text-sm text-white">
-                  <span className="text-white/45">{t.account}</span> · {t.subject}
-                </p>
-                <p className="mt-1 text-[11px] text-white/40">
-                  Open {t.age} · {t.tone}
-                </p>
-              </div>
-              {t.csm ? (
-                <span className="shrink-0 rounded-full bg-rose-300 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-rose-950 uppercase">
-                  Intervene
-                </span>
-              ) : (
-                <span className="shrink-0 text-[10px] tracking-wide text-white/35 uppercase">
-                  Support owns
-                </span>
-              )}
-            </div>
-          </div>
-        ))}
       </div>
     </MockShell>
   )
@@ -253,22 +208,6 @@ function MockMeeting() {
         <li className="rounded-lg bg-white/5 px-3 py-2">3. Mid-market rollup · deltas ready</li>
       </ul>
       <p className="mt-4 text-xs text-teal-200/80">You run the meeting. Next brought the packet.</p>
-    </MockShell>
-  )
-}
-
-function MockOneOne() {
-  return (
-    <MockShell>
-      <p className="font-display text-2xl text-white">1:1 · Alex Rhee</p>
-      <p className="mt-2 text-sm text-white/55">Sample agenda prepared from last week</p>
-      <div className="mt-5 space-y-2 text-sm text-white/80">
-        <p className="rounded-xl bg-white/5 px-3 py-2">Wins: first solo exec QBR shipped</p>
-        <p className="rounded-xl bg-white/5 px-3 py-2">Miss: discovery depth on buying committee</p>
-        <p className="rounded-xl border border-teal-400/30 bg-teal-400/10 px-3 py-2">
-          Coach today: two discovery questions before product talk
-        </p>
-      </div>
     </MockShell>
   )
 }
@@ -296,7 +235,7 @@ function MockConnect() {
       <div className="grid gap-3 sm:grid-cols-2">
         {[
           ['Calendar', 'Hard stops protected'],
-          ['Support', 'Intervene when needed'],
+          ['Support', 'See tickets · intervene when needed'],
           ['CRM / Health', 'Risk before inbox'],
           ['Gong + Slack', 'Evidence on every Next'],
         ].map(([t, d]) => (
@@ -307,7 +246,7 @@ function MockConnect() {
         ))}
       </div>
       <p className="mt-6 text-sm text-white/55">
-        Dummy site · illustrates the vision. The live day prototype is the clickable loop.
+        Dummy site · illustrates the vision. Try the live day for the real loop.
       </p>
     </MockShell>
   )
@@ -325,12 +264,8 @@ function MockFor({ slide }: { slide: VisionSlide }) {
       return <MockApprove />
     case 'interrupt':
       return <MockInterrupt />
-    case 'tickets':
-      return <MockTickets />
     case 'meeting':
       return <MockMeeting />
-    case 'oneone':
-      return <MockOneOne />
     case 'enough':
       return <MockEnough />
     case 'connect':
@@ -412,14 +347,27 @@ export function CsVisionDeckPage() {
           ) : null}
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              disabled={index === 0}
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm text-white/70 transition enabled:hover:bg-white/5 disabled:opacity-30"
-            >
-              <ArrowLeft className="size-4" /> Back
-            </button>
+            {slide.id === 'open' ? (
+              <button
+                type="button"
+                onClick={() => {
+                  enterDemo()
+                  navigate('/morning')
+                }}
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 text-sm text-white/90 transition hover:bg-white/10"
+              >
+                Try the live day
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                disabled={index === 0}
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm text-white/70 transition enabled:hover:bg-white/5 disabled:opacity-30"
+              >
+                <ArrowLeft className="size-4" /> Back
+              </button>
+            )}
             {!last ? (
               <button
                 type="button"
@@ -440,6 +388,15 @@ export function CsVisionDeckPage() {
                 Enter Joe&apos;s live day <ArrowRight className="size-4" />
               </button>
             )}
+            {slide.id === 'open' ? (
+              <button
+                type="button"
+                onClick={() => go(1)}
+                className="inline-flex h-12 items-center gap-2 rounded-full bg-teal-300 px-6 text-sm font-semibold text-[#062018] shadow-[0_16px_40px_-16px_rgba(94,214,198,0.8)] transition hover:-translate-y-0.5"
+              >
+                Walk the story <ArrowRight className="size-4" />
+              </button>
+            ) : null}
           </div>
         </div>
 

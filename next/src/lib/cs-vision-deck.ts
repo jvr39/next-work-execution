@@ -4,9 +4,10 @@ export type VisionSlide = {
   title: string
   line: string
   note?: string
-  mock: 'title' | 'briefing' | 'risk' | 'approve' | 'interrupt' | 'tickets' | 'meeting' | 'oneone' | 'enough' | 'connect'
+  mock: 'title' | 'briefing' | 'risk' | 'approve' | 'interrupt' | 'meeting' | 'enough' | 'connect'
 }
 
+/** Short prospect path — 7 beats */
 export const csVisionSlides: VisionSlide[] = [
   {
     id: 'open',
@@ -17,68 +18,45 @@ export const csVisionSlides: VisionSlide[] = [
   },
   {
     id: 'brief',
-    chapter: '09:02 · Morning',
+    chapter: 'Morning',
     title: 'Risk before inbox.',
     line: 'Overnight: Acme flipped red. Next rebuilt the day so urgent revenue work lands first.',
-    note: 'Best practice: health & renewals before Slack rabbit holes.',
+    note: 'Health & renewals before Slack rabbit holes.',
     mock: 'briefing',
   },
   {
     id: 'risk',
-    chapter: '09:15 · Next',
-    title: 'Review Acme renewal risk.',
-    line: 'Gong, usage, Slack, and CRM already pulled. You pick the approach. You approve what goes out.',
+    chapter: 'One Next',
+    title: 'Evidence-backed judgment.',
+    line: 'Gong, usage, Slack, CRM already pulled. You pick the approach. You approve what goes out.',
     note: 'Human judgment. AI dug the trench.',
     mock: 'risk',
   },
   {
     id: 'approve',
-    chapter: '09:40 · Next',
-    title: 'Approve the QBR follow-up.',
-    line: 'Draft is ready. You skim the promise date, tweak if needed, send.',
-    note: 'Admin → near zero.',
+    chapter: 'AI prepared',
+    title: 'Approve the follow-up.',
+    line: 'Draft is ready. You skim the promise, tweak if needed, send. Admin → near zero.',
     mock: 'approve',
   },
   {
     id: 'interrupt',
-    chapter: 'Interrupt',
+    chapter: 'Replan',
     title: 'Plans aren’t sacred.',
-    line: 'AE pings: customer won’t renew without exec cover this week. Next replans like Waze.',
+    line: 'New information lands. Next inserts a new Next and protects fixed meetings — like Waze.',
     mock: 'interrupt',
   },
   {
-    id: 'tickets',
-    chapter: 'Connected · Support',
-    title: 'See every open ticket. Intervene only when it matters.',
-    line: 'Next reads Support. Filter unresolved on your book. Support owns the queue — you jump in for relationship risk.',
-    note: 'Visibility ≠ becoming the help desk.',
-    mock: 'tickets',
-  },
-  {
-    id: 'meeting',
-    chapter: '11:30 · Calendar',
-    title: 'Forecast review starts now.',
-    line: 'Agenda and deltas are ready. You run the room — that’s the craft.',
-    mock: 'meeting',
-  },
-  {
-    id: 'oneone',
-    chapter: '13:00 · Coaching',
-    title: '1:1 with Alex.',
-    line: 'Last week’s calls, a sample agenda, one coaching focus. You show up and lead.',
-    mock: 'oneone',
-  },
-  {
     id: 'enough',
-    chapter: '16:10 · Close',
+    chapter: 'Close',
     title: 'Enough for today.',
-    line: 'Urgent cleared. The adoption dig can wait until tomorrow. Not inbox zero — judgment.',
+    line: 'Urgent cleared. The rest can wait. Not inbox zero — judgment. Time back, not list complete.',
     mock: 'enough',
   },
   {
     id: 'connect',
-    chapter: 'The vision',
-    title: 'Connected to the whole CS stack.',
+    chapter: 'Vision',
+    title: 'Connected to the CS stack.',
     line: 'Calendar, email, Slack, CRM, health, Gong, Support — one brain. You only execute.',
     mock: 'connect',
   },

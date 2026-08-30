@@ -79,18 +79,37 @@ export function Page({ children, className }: { children: ReactNode; className?:
 }
 
 export function NavLinks() {
+  return <InspectLinks />
+}
+
+/** Demo inspection — not everyday product nav */
+export function InspectLinks() {
   return (
-    <>
-      <Link to="/morning" className="transition-colors hover:text-foreground">
-        Briefing
-      </Link>
-      <Link to="/role" className="transition-colors hover:text-foreground">
-        Role
-      </Link>
-      <Link to="/memory" className="transition-colors hover:text-foreground">
-        Memory
-      </Link>
-    </>
+    <details className="relative">
+      <summary className="cursor-pointer list-none text-xs text-muted-foreground transition-colors hover:text-foreground">
+        How Next knows
+      </summary>
+      <div className="absolute right-0 z-20 mt-2 min-w-40 rounded-xl border border-border bg-card/95 p-2 shadow-[var(--shadow-lift)] backdrop-blur-md">
+        <Link
+          to="/morning"
+          className="block rounded-lg px-3 py-2 text-xs text-ink-soft hover:bg-secondary/80 hover:text-foreground"
+        >
+          Briefing
+        </Link>
+        <Link
+          to="/role"
+          className="block rounded-lg px-3 py-2 text-xs text-ink-soft hover:bg-secondary/80 hover:text-foreground"
+        >
+          Role
+        </Link>
+        <Link
+          to="/memory"
+          className="block rounded-lg px-3 py-2 text-xs text-ink-soft hover:bg-secondary/80 hover:text-foreground"
+        >
+          Memory
+        </Link>
+      </div>
+    </details>
   )
 }
 
@@ -186,9 +205,9 @@ export function CoachHint({ onDismiss }: { onDismiss: () => void }) {
     <div className="animate-rise mb-8 rounded-2xl border border-urgent/30 bg-urgent/10 px-4 py-3 text-[13px] leading-relaxed text-urgent-foreground">
       <div className="flex items-start justify-between gap-3">
         <p>
-          <span className="font-medium">Prototype tip:</span> press the teal <strong>Next</strong>{' '}
-          button, make a decision in the workspace, then <strong>Done</strong>. After your first
-          task, watch the route replan.
+          <span className="font-medium">Prototype tip:</span> press <strong>Start</strong>, make a
+          decision, then <strong>Done</strong>. After your first task, new information will force a
+          replan.
         </p>
         <button
           type="button"

@@ -14,7 +14,7 @@ import {
   type Action,
 } from './next-data'
 
-const KEY = 'next.state.v2'
+const KEY = 'next.state.v3'
 
 export type NextState = {
   seenLanding: boolean
@@ -154,14 +154,19 @@ export function NextProvider({ children }: { children: ReactNode }) {
   const applyReplan = useCallback(() => {
     setState((prev) => {
       const completedSet = new Set(prev.completed)
-      // Prefer interrupt order, but keep completed items where they are conceptually done
+      // New work from the interrupt (e.g. save plan) must enter the route even if
+      // it was not in the morning order.
       const preferred = interruptEvent.newOrder.filter((id) => !completedSet.has(id))
       const leftovers = prev.order.filter(
         (id) => !completedSet.has(id) && !preferred.includes(id),
       )
       const next: NextState = {
         ...prev,
-        order: [...prev.order.filter((id) => completedSet.has(id)), ...preferred, ...leftovers],
+        order: [
+          ...prev.order.filter((id) => completedSet.has(id)),
+          ...preferred,
+          ...leftovers,
+        ],
         replanApplied: true,
         interruptOpen: false,
         justAdvanced: true,

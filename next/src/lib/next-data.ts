@@ -178,15 +178,15 @@ export const briefing = {
 }
 
 export const interruptEvent = {
-  id: 'acme-churn-threat',
+  id: 'acme-bake-off',
   from: 'Sarah Delgado',
   channel: 'Slack · #acme-deal',
   message:
-    'James just said they will not renew without exec air cover this week. Need you now — not after forecast.',
+    'New: James forwarded an internal thread — Competitor X is in a final bake-off Friday. Your escalate path isn’t enough. Need a 1-page save plan for Jamie before forecast.',
   effect:
-    "I've moved Acme to the front and pushed Globex adoption to after lunch. Your 11:30 forecast review still stands.",
+    "I've inserted a new Next — Prep Acme exec save plan — ahead of forecast. Globex adoption stays after lunch. Your 11:30 forecast review still stands.",
   newOrder: [
-    'acme-renewal-risk',
+    'acme-save-plan',
     'forecast-review',
     'approve-responses',
     'one-on-one-alex',
@@ -206,10 +206,80 @@ export const defaultOrder = [
 
 export const queue: Action[] = [
   {
+    id: 'acme-save-plan',
+    window: 'Now',
+    title: 'Prep Acme exec save plan',
+    why: 'Bake-off Friday. Jamie needs a one-pager before she joins James — usage dip, competitor, and the ask.',
+    steps: [
+      'Confirm the three facts on the brief.',
+      'Approve the one-pager draft for Jamie.',
+      'Send it before forecast so she is not blindsided.',
+    ],
+    effort: '15 min',
+    level: 'ai-prepared',
+    responsibility: 'Customer retention',
+    calendarConstraint: 'Before 11:30 forecast',
+    brief:
+      'New overnight thread: Competitor X in final bake-off Friday. Sarah needs Jamie armed before the forecast call. Draft pulls usage, Gong competitor mention, and the re-onboarding ask.',
+    workspace: {
+      objective: 'Get Jamie a crisp save plan before forecast — not a slide deck.',
+      context: [
+        { label: 'Deadline', value: 'Before 11:30', urgent: true },
+        { label: 'ARR', value: '$420K' },
+        { label: 'Threat', value: 'Bake-off Friday', urgent: true },
+        { label: 'Owner', value: 'Jamie + you' },
+      ],
+      changed: [
+        'Internal Acme thread names Competitor X for Friday bake-off.',
+        'Escalate path from this morning is still on — this is the ammo for Jamie.',
+      ],
+      evidence: [
+        {
+          kind: 'slack',
+          label: 'Slack · #acme-deal',
+          detail: 'Sarah: Bake-off Friday. Jamie needs the one-pager before forecast.',
+        },
+        {
+          kind: 'email',
+          label: 'Forwarded thread · James',
+          detail: '"Procurement asked us to finish the X evaluation this week."',
+        },
+        {
+          kind: 'chart',
+          label: 'Usage · already in brief',
+          detail: 'WAU −22% since Aug 4 — same chart as morning risk review.',
+        },
+      ],
+      options: [
+        {
+          id: 'send-jamie',
+          label: 'Approve & send one-pager to Jamie',
+          hint: 'She gets facts + ask before forecast.',
+          prepared: {
+            title: 'Acme save plan · for Jamie',
+            channel: 'Slack DM · drafted',
+            body: "Jamie — before forecast: Acme $420K, renewal Sept 24, WAU −22% since ops lead left Aug 4, Competitor X bake-off Friday. Ask: join me + James Thu 25 min with a re-onboarding plan; if it misses, we discuss renewal on their terms. Sarah is aligned. One-pager attached in thread.",
+            evidence: ['Usage trend', 'Gong competitor mention', 'Sarah Slack'],
+          },
+        },
+        {
+          id: 'edit-first',
+          label: 'Edit the draft first',
+          hint: 'Opens the draft for a quick pass.',
+        },
+        {
+          id: 'defer',
+          label: 'Park until after forecast',
+          hint: "I'll warn you it's late for Jamie.",
+        },
+      ],
+    },
+  },
+  {
     id: 'acme-renewal-risk',
     window: '9:15–9:35',
     title: 'Review Acme renewal risk',
-    why: 'Renewal in 26 days, customer sentiment deteriorated yesterday, Sarah asked for help, and the CSM has not responded since Tuesday.',
+    why: 'Renewal in 26 days. Usage fell 22% and a competitor was named yesterday.',
     steps: [
       'Read the account brief I assembled (2 min).',
       'Review the 90-second Gong excerpt where the competitor came up.',
