@@ -14,9 +14,8 @@ AI can suggest an approach. **You** still do the job your way.
 Not a replacement for workers — a way to cut admin near zero.
 
 ## Who
-**GTM first:** Customer Success, Sales, Solutions/SE.  
-**Demo:** a CS day (same loop for the rest of GTM).  
-Long-term: anyone paid for judgment, not busywork.
+**Doors:** Next for CS · Sales · BDR · RevOps · **Next for You** (solo/small team).  
+**Demo:** CS day. One product underneath.
 
 ## How you’ll buy
 Go to the site → Solo or Small Team → pay with a card → start.

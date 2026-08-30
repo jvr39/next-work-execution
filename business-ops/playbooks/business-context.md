@@ -32,6 +32,12 @@ Fill this in so every agent shares the same facts. Chief of Staff should keep it
 **Today:** Interactive demo that *feels* like that (not the full plumbing yet).  
 Live: https://jvr39.github.io/next-work-execution/
 
+**Beachhead (locked):** **GTM teams** — doors: **Next for CS · Sales · BDR · RevOps**.  
+**Also a door:** **Next for You** (DTC solo / small team) — secondary until a GTM door proves stick + pay.  
+**Demo use case (locked):** **Next for CS** (Joe’s day).  
+**Packaging rule:** One product, many doors — not five apps. See `packaging-role-doors.md`.  
+**Brand long-term:** Still broader; don’t market “CSM-only tool.”
+
 **Day shape (locked):** Sit down → one task at a time (email, call, deck, 1:1…) → Done → next. Knows the clock, urgency, and “enough for today.” Prep included (e.g. 1:1 agenda). Not inbox-zero / finish-everything.
 
 **Human in charge (locked):** AI suggests approaches. User does the job their way. Not a worker replacement — a focus/productivity tool so skilled people execute without mental load.
