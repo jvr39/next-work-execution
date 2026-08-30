@@ -16,6 +16,33 @@ Next is for **anyone**.
 
 **One-liner:** Next knows your work world so you only have to do the work.
 
+## Day in the life (owner story — locked)
+
+You’re a customer success manager. You sit down. Next already knows your world.
+
+It doesn’t hand you a giant list. It puts **one thing** in front of you:
+
+1. **Respond to this email** (it already sorted what came in; this one first) → you do it → **Done**
+2. **Next email** → Done
+3. **Call in a few minutes** — get ready / join
+4. **QBR tomorrow** — spend time on the deck now (it knows it’s due)
+5. **1:1 now** — here’s what happened last week + a sample agenda → you run the meeting → Done
+
+Same idea if you’re in **leadership**: follow up with this person, coach so-and-so, check that — one thing at a time.
+
+### What the system is doing in the background
+- Knows **time of day** and your work window (e.g. 9–5)
+- Knows what’s **urgent vs can wait**
+- Tracks if you’re **on track** for the important stuff
+- Estimates **effort** using what’s going on in the business
+- Tells you when you’ve done **enough for today** — pick up the rest tomorrow  
+  (You do **not** have to finish every single thing today)
+
+### The loop
+**See the thing → do the skilled part → Done → get the next thing.**
+
+That’s the whole product feeling.
+
 ## What Next is
 
 - A work **execution** system (not a to-do list or dashboard)

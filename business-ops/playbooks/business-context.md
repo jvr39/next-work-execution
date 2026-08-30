@@ -5,7 +5,7 @@ Fill this in so every agent shares the same facts. Chief of Staff should keep it
 ## Company
 
 - **Name:** (TBD — product working name: **Next**)
-- **One-liner:** Next gets you to a state where you only complete work — not carry mental load or admin.
+- **One-liner:** Next knows your work world so you only have to do the work.
 - **Stage:** idea / prototype (interactive Vite prototype exists)
 - **Location / markets:** Global, English-first (owner: US)
 - **Owner:** Joseph Rivera
@@ -31,6 +31,8 @@ Fill this in so every agent shares the same facts. Chief of Staff should keep it
 
 **Today:** Interactive demo that *feels* like that (not the full plumbing yet).  
 Live: https://jvr39.github.io/next-work-execution/
+
+**Day shape (locked):** Sit down → one task at a time (email, call, deck, 1:1…) → Done → next. Knows the clock, urgency, and “enough for today.” Prep included (e.g. 1:1 agenda). Not inbox-zero / finish-everything.
 
 Implications:
 - Horizontal (“anyone”)
