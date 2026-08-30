@@ -1,95 +1,61 @@
 # Next — small pitch kit
 
 **Use this when you show someone.**  
-**Demo:** https://jvr39.github.io/next-work-execution/  
-**Time:** ~8–10 minutes
+**Deck:** https://jvr39.github.io/next-work-execution/#/pitch  
+**Demo:** https://jvr39.github.io/next-work-execution/#/  
+**Time:** ~6 minutes + the Waze interrupt
 
 ---
 
 ## The one-liner
 
-Next knows your work world so you only do the work — not the admin and mental load.
+One Next. You do the craft.
 
 ---
 
 ## What to say (talk track)
 
-### 1. Hook (30 sec)
-“Most work tools make you *manage* work — lists, boards, inboxes.  
-Next does the opposite. It puts **one thing** in front of you. You do the skilled part. You hit Done. It gives you the next thing.”
+### 1. Hook (20 sec)
+Most GTM tools make you manage work — lists, boards, inboxes.  
+Next puts **one thing** in front of you. You do the skilled part. Done. Next.
 
-### 2. Who it’s for (20 sec)
-“**Next for CS. Next for Sales. Next for BDR. Next for RevOps.** Same product — different door.  
-Also **Next for You** if you’re solo or a tiny team.  
-I’ll show **CS** — one thing at a time, you do the craft. Not replacing people.”
+### 2. Who (15 sec)
+GTM first: CS, Sales, BDR, RevOps. I’ll show **CS**.
 
-### 3. The day (40 sec)
-“You sit down. It already sorted email, calendar, prep.  
-Reply to this → Done.  
-Call prep → Done.  
-Deck for tomorrow → Done.  
-1:1 with a starter agenda → Done.  
-It knows the clock. It tells you when you’ve done *enough for today*. You don’t have to finish everything.”
+### 3. The product (40 sec)
+The day is routed. Prep is done. You judge.  
+When Slack blows up the plan, it replans — like Waze.  
+You stop at enough for today, not inbox zero.
 
-### 4. Show the demo (5–6 min)
-Open the link. Say: “This is a clickable day — feel the loop.”
+### 4. The real fight (30 sec)
+Salesforce, HubSpot, and Microsoft already hold the data this product needs.  
+If they ship a credible one-Next on top of CRM + inbox + calendar, we are in trouble.  
+We only win as the cross-stack execution habit they are too slow or too siloed to become.
 
-1. **Enter Joe’s day**  
-2. **Start my day** → press **Next**  
-3. Read / decide / approve → **Done**  
-4. Do that 1–2 more times  
-5. Use **Simulate Slack interrupt** once — “plan changes, like Waze”  
-6. Peek **Role** / **Memory** if they’re curious — “this is the brain; later it plugs into real tools”
+### 5. Show the demo (4 min)
+Open **Enter Joe’s day**. Do one task. Hit **The Waze moment**. That interrupt is the product.
 
-### 5. The big version (30 sec)
-“Full product: meetings, screen, messages, tools — one source of truth.  
-AI can suggest *how*. You still do the job your way.  
-Buy online: Solo or Small Team, card, start same day. No sales call.”
-
-### 6. Soft ask (20 sec)
-“I’m serious about building this.  
-What part felt real? What felt fake? Would you pay for the feeling of *only executing*?”
-
----
-
-## One-pager (send after, or leave behind)
-
-**Next**  
-Work execution — not another to-do app.
-
-**Problem**  
-Skilled people drown in admin: triage, prep, scheduling, “what should I do now?”
-
-**Product**  
-One Next at a time. System carries load. Human does the craft and approves what goes out.
-
-**Not**  
-Worker replacement. Dashboard. Inbox-zero tyranny.
-
-**How you buy (planned)**  
-Website → Solo or Small Team → pay with card → use it.
-
-**Demo**  
-https://jvr39.github.io/next-work-execution/
-
-**Status**  
-Prototype you can feel today. Real product next.
+### 6. The ask (30 sec)
+Raising **$400k** for 90 days: 10 interviews, a thin Solo MVP, 25 people on real work.  
+Stop if nobody will pay or connect tools.  
+Wanted: capital + intros to CS/Sales operators who will take a blunt interview this month.
 
 ---
 
 ## If they only remember three things
 
-1. One thing at a time — not a list.  
-2. Humans execute; AI clears admin.  
-3. Self-serve: pay and go.
+1. One Next — not a list.  
+2. The Waze moment is the product.  
+3. Incumbents own the data. That is the company-killing risk.
 
 ---
 
-## After the pitch — note this
+## After — note this
 
 - Their role: ________  
 - What they loved: ________  
-- What confused them: ________  
+- What felt fake: ________  
 - Would they try / pay?: ________  
+- Intro to a CS director?: ________  
 
-Bring those notes back; we’ll use them.
+Bring those notes back. One real quote beats this deck.

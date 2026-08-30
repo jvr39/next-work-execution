@@ -26,7 +26,6 @@ function saveEmail(email: string) {
 export function WaitlistForm({ dark = false }: { dark?: boolean }) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'ok' | 'bad'>('idle')
-  const [count, setCount] = useState(() => (typeof window !== 'undefined' ? readList().length : 0))
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
@@ -34,8 +33,7 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
       setStatus('bad')
       return
     }
-    const n = saveEmail(email)
-    setCount(n)
+    saveEmail(email)
     setStatus('ok')
     setEmail('')
   }
@@ -70,18 +68,12 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
       </form>
       {status === 'ok' ? (
         <p className={dark ? 'mt-3 text-sm text-teal-200/90' : 'mt-3 text-sm text-urgent-foreground'}>
-          You&apos;re on the local prototype list ({count}). We&apos;ll need a real backend before
-          this reaches anyone but this browser.
+          You&apos;re on the list. We&apos;ll email when there is something to try.
         </p>
       ) : null}
       {status === 'bad' ? (
         <p className={dark ? 'mt-3 text-sm text-rose-300' : 'mt-3 text-sm text-red-700'}>
           Enter a valid email.
-        </p>
-      ) : null}
-      {status === 'idle' && count > 0 ? (
-        <p className={dark ? 'mt-3 text-xs text-white/35' : 'mt-3 text-xs text-muted-foreground'}>
-          {count} email{count === 1 ? '' : 's'} stored in this browser (prototype only).
         </p>
       ) : null}
     </div>

@@ -66,39 +66,16 @@ function MockBriefing() {
   return (
     <MockShell>
       <p className="text-white/45 text-[12px]">Good morning, Joe.</p>
-      <p className="font-display mt-2 text-2xl text-white sm:text-3xl">
+      <p className="font-display mt-3 text-2xl text-white sm:text-3xl">
         Acme&apos;s renewal is now at risk.
       </p>
-      <p className="mt-2 text-sm text-teal-200/90">I rearranged your afternoon accordingly.</p>
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        {[
-          ['Usable', '5h 10m'],
-          ['Need today', '6'],
-          ['Urgent by', '4:20 PM'],
-        ].map(([k, v]) => (
-          <div key={k} className="rounded-xl bg-white/5 px-3 py-3">
-            <p className="text-[10px] tracking-wider text-white/40 uppercase">{k}</p>
-            <p className="mt-1 font-display text-lg text-white">{v}</p>
-          </div>
-        ))}
-      </div>
-      <div className="mt-5 space-y-2">
-        {[
-          ['9:15', 'Review Acme renewal risk', true],
-          ['9:40', 'Approve Globex QBR follow-up', false],
-          ['11:30', 'Team forecast review', false],
-        ].map(([t, label, hot]) => (
-          <div
-            key={String(label)}
-            className={cn(
-              'flex items-center justify-between rounded-xl px-3 py-2.5 text-sm',
-              hot ? 'bg-teal-400/15 text-teal-100' : 'bg-white/4 text-white/70',
-            )}
-          >
-            <span>{label as string}</span>
-            <span className="text-white/40 text-xs">{t as string}</span>
-          </div>
-        ))}
+      <p className="mt-6 text-sm text-white/50">Next</p>
+      <p className="font-display mt-1 text-xl text-teal-200">Review Acme renewal risk</p>
+      <p className="mt-2 text-sm text-white/40">20 min · evidence already pulled</p>
+      <div className="mt-8">
+        <span className="inline-flex items-center rounded-2xl bg-teal-400 px-8 py-3 font-display text-lg font-semibold text-[#062018]">
+          Start
+        </span>
       </div>
     </MockShell>
   )
@@ -352,7 +329,7 @@ export function CsVisionDeckPage() {
                 type="button"
                 onClick={() => {
                   enterDemo()
-                  navigate('/morning')
+                  navigate('/home')
                 }}
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 text-sm text-white/90 transition hover:bg-white/10"
               >
@@ -381,7 +358,7 @@ export function CsVisionDeckPage() {
                 type="button"
                 onClick={() => {
                   enterDemo()
-                  navigate('/morning')
+                  navigate('/home')
                 }}
                 className="inline-flex h-12 items-center gap-2 rounded-full bg-teal-300 px-6 text-sm font-semibold text-[#062018] shadow-[0_16px_40px_-16px_rgba(94,214,198,0.8)] transition hover:-translate-y-0.5"
               >

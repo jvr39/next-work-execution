@@ -1,28 +1,21 @@
 # Next
 
-**One line:** Knows your work world so you only do the work.
+**One line:** One Next. You do the craft.
 
 ## Problem
-Skilled people spend the day managing work — email, calendars, prep, “what’s next?” — instead of using their skill.
+GTM people spend the day managing work across inbox, calendar, CRM, Slack, and tickets — instead of doing the job.
 
 ## Product
-Next puts **one task** in front of you.  
-You do it. Done. Next.  
-It sorts, preps, and watches the clock. It tells you when you’ve done enough for today.
+One Next at a time. Prep done. Human judgment. Replan when reality changes (Waze). Stop at enough for today.
 
-AI can suggest an approach. **You** still do the job your way.  
-Not a replacement for workers — a way to cut admin near zero.
+## The fight
+Salesforce, HubSpot, and Microsoft own the data. Productivity apps are a crowded shelf. The systems of record are the existential threat.
 
 ## Who
-**Doors:** Next for CS · Sales · BDR · RevOps · **Next for You** (solo/small team).  
-**Demo:** CS day. One product underneath.
-
-## How you’ll buy
-Go to the site → Solo or Small Team → pay with a card → start.
-
-## Feel it now
-https://jvr39.github.io/next-work-execution/  
-(~8 min clickthrough)
+CS, Sales, BDR, RevOps. Demo is a CS day.
 
 ## Ask
-Would this change how your day feels?
+**$400k / 90 days** — 10 interviews, Solo MVP, 25 people on real work. Intros to CS and Sales operators.
+
+## Feel it
+https://jvr39.github.io/next-work-execution/#/pitch

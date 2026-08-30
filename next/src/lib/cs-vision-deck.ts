@@ -13,7 +13,7 @@ export const csVisionSlides: VisionSlide[] = [
     id: 'open',
     chapter: 'Next for CS',
     title: 'One Next. Not a list.',
-    line: 'Scripted mock of the loop: prep, decide, replan, enough for today. Feeling — not messy-data proof.',
+    line: 'Prep. Decide. Replan when the world moves. Stop at enough. You do the craft.',
     mock: 'title',
   },
   {
@@ -42,8 +42,8 @@ export const csVisionSlides: VisionSlide[] = [
   {
     id: 'interrupt',
     chapter: 'Replan',
-    title: 'Plans aren’t sacred.',
-    line: 'New information lands. Next inserts a new Next and protects fixed meetings — like Waze.',
+    title: 'The Waze moment.',
+    line: 'New information lands. Next inserts a new Next and protects fixed meetings. Plans are not sacred.',
     mock: 'interrupt',
   },
   {

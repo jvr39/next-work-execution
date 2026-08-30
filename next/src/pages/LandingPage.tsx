@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Brand, Page } from '@/components/Chrome'
-import { prototypeGuide } from '@/lib/next-data'
 import { useNext } from '@/lib/next-store'
 
 export function LandingPage() {
@@ -19,18 +18,8 @@ export function LandingPage() {
           One clear Next. You do the craft.
         </h1>
         <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink-soft">
-          Scripted prototype of a CS day. Shows the loop we want to protect — not proof we can assemble
-          messy CRM/Gong/Slack data yet.
+          A CS day. One Next at a time. When Slack blows up the plan, the route changes — like Waze.
         </p>
-      </div>
-
-      <div className="animate-rise-slow mt-10 grid gap-4 sm:grid-cols-2">
-        {prototypeGuide.map((item) => (
-          <div key={item.title} className="rounded-2xl border border-border/80 bg-card/50 p-5">
-            <p className="font-display text-lg">{item.title}</p>
-            <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{item.body}</p>
-          </div>
-        ))}
       </div>
 
       <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -53,7 +42,7 @@ export function LandingPage() {
           type="button"
           onClick={() => {
             enterDemo()
-            navigate('/morning')
+            navigate('/home')
           }}
           className="inline-flex h-16 items-center justify-center rounded-2xl border border-input px-7 font-display text-lg text-ink-soft transition-colors hover:bg-secondary/70"
         >

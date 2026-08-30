@@ -130,33 +130,6 @@ export const workGraph = {
   ],
 }
 
-export const workMemory = [
-  {
-    title: 'How you decide',
-    body: 'You escalate enterprise risk when usage drops >15% and a competitor is named in the same week. You almost never escalate on sentiment alone.',
-  },
-  {
-    title: 'What Jamie cares about',
-    body: 'Forecast accuracy first. Customer color second. She reads Slack before email and hates surprise board-deck risk.',
-  },
-  {
-    title: 'Your communication pattern',
-    body: 'Customer messages: short, ownership-forward, one clear ask. Internal: bullets, then the ask.',
-  },
-  {
-    title: 'Time estimates',
-    body: 'You take ~1.4× longer on coaching 1:1s than you schedule. Escalation drafts you approve in under 4 minutes when evidence is pre-pulled.',
-  },
-  {
-    title: 'Recurring blind spots',
-    body: 'You defer CRM hygiene until Friday — then it collides with forecast. I surface one hygiene pass mid-week now.',
-  },
-  {
-    title: 'Safe to automate',
-    body: 'Account briefs, Gong excerpts, forecast delta tables, routine customer recaps. You still want the pen on pricing and exec escalations.',
-  },
-]
-
 export const briefing = {
   greeting: 'Good morning, Joe.',
   usableTime: '5h 10m',
@@ -182,7 +155,7 @@ export const interruptEvent = {
   from: 'Sarah Delgado',
   channel: 'Slack · #acme-deal',
   message:
-    'New: James forwarded an internal thread — Competitor X is in a final bake-off Friday. Your escalate path isn’t enough. Need a 1-page save plan for Jamie before forecast.',
+    "New: James forwarded an internal thread — Competitor X is in a final bake-off Friday. Your escalate path isn't enough. Need a 1-page save plan for Jamie before forecast.",
   effect:
     "I've inserted a new Next — Prep Acme exec save plan — ahead of forecast. Globex adoption stays after lunch. Your 11:30 forecast review still stands.",
   newOrder: [
@@ -712,15 +685,11 @@ export const prototypeGuide = [
     body: 'Everything exists to answer: what should I do next? Resist looking for a dashboard.',
   },
   {
-    title: 'Press Next',
-    body: 'Enter the workspace. Read the evidence. Make a decision. Approve anything AI prepared.',
+    title: 'Press Start',
+    body: 'Read the evidence. Make a decision. Approve anything AI prepared.',
   },
   {
-    title: 'Press Done',
-    body: 'The route updates. Try the “Simulate Slack interrupt” control once — that’s the Waze moment.',
-  },
-  {
-    title: 'Look under the hood',
-    body: 'Role, Stakeholders, and Memory show the model that makes priorities feel personal.',
+    title: 'The Waze moment',
+    body: 'After the first task, hit The Waze moment in the bar. New information. New Next. That is the product.',
   },
 ]

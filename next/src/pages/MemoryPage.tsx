@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { InspectLinks, Page, TopBar } from '@/components/Chrome'
-import { workMemory } from '@/lib/next-data'
 import { useNext } from '@/lib/next-store'
 
 export function MemoryPage() {
@@ -12,18 +11,16 @@ export function MemoryPage() {
       <TopBar right={<InspectLinks />} />
       <Page>
         <div className="animate-rise pt-8">
-          <p className="text-eyebrow">Work memory</p>
+          <p className="text-eyebrow">This session</p>
           <h1 className="font-display mt-3 text-[clamp(1.9rem,4.5vw,2.8rem)] font-semibold leading-tight tracking-tight">
-            Seeded preferences (explanatory — not live learning).
+            Decisions you made today.
           </h1>
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-            These screens show what “knowing Joe” could feel like later. We do not have behavioral
-            memory yet. Prototype decisions you make still leave a trace below.
+            Traces from this clickthrough. Nothing learns yet.
           </p>
         </div>
 
         <section className="mt-12">
-          <p className="text-eyebrow">This session</p>
           {decisions.length === 0 ? (
             <p className="mt-3 text-[15px] text-muted-foreground">
               No decisions yet · {progress.done}/{progress.total} actions complete. Finish a task to
@@ -42,22 +39,9 @@ export function MemoryPage() {
           )}
           {state.replanApplied && (
             <p className="mt-4 text-sm text-urgent-foreground">
-              Mid-day replan accepted — interrupt weighting now favors AE escalations on red
-              accounts.
+              Mid-day replan accepted.
             </p>
           )}
-        </section>
-
-        <section className="mt-14">
-          <p className="text-eyebrow">Persistent memory (seeded)</p>
-          <ul className="mt-4 space-y-4">
-            {workMemory.map((m) => (
-              <li key={m.title} className="rounded-2xl border border-border/80 bg-card/40 p-5">
-                <p className="font-display text-lg">{m.title}</p>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{m.body}</p>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <Link

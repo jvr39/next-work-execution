@@ -228,7 +228,7 @@ export function VcPitchDeckPage() {
                 type="button"
                 onClick={() => {
                   enterDemo()
-                  navigate('/morning')
+                  navigate('/home')
                 }}
                 className="inline-flex h-11 items-center gap-2 rounded-full bg-teal-300 px-6 text-sm font-semibold text-[#062018]"
               >

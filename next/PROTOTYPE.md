@@ -2,7 +2,7 @@
 
 Interactive prototype of a work execution system that answers one question: **What should I do next?**
 
-Not a to-do app. A click-through of Joe’s day as a CS director — role model, morning briefing, NOW / Next, task workspaces, Approve & send, mid-day replan (Waze), work memory.
+A click-through of Joe’s day as a CS director — one Next, task workspace, Approve & send, then **The Waze moment**.
 
 ## Share this link
 
@@ -12,14 +12,11 @@ Not a to-do app. A click-through of Joe’s day as a CS director — role model,
 
 **CS vision deck:** https://jvr39.github.io/next-work-execution/#/vision
 
-Send reviewers the pitch or vision URL. For the day loop:
+1. Tap **Enter Joe’s day**
+2. **Start** → decide → **Done**
+3. After the first task, tap **The Waze moment** in the bottom bar
 
-1. Tap **Enter Joe’s day**  
-2. **Start my day** → press **Next** → decide → **Done**  
-3. After the first task, accept the Slack interrupt  
-4. Peek at **Role** and **Memory** in the header  
-
-~8 minutes. Prototype controls live in the bottom bar (simulate interrupt, jump mid-day, reset).
+~6 minutes. That interrupt is the product.
 
 Repo: https://github.com/jvr39/next-work-execution
 
@@ -37,22 +34,16 @@ Open the URL Vite prints (e.g. `http://127.0.0.1:5173`).
 
 | Moment | Why it matters |
 | --- | --- |
-| Landing → Enter Joe’s day | Instant immersion; onboarding is optional |
-| Morning briefing | Plan built from calendar + overnight change |
-| Giant **Next** | Killer feature — one button, no dashboard |
+| Landing → Enter Joe’s day | Instant immersion |
+| Giant **Start** | One Next — no dashboard, no list |
 | Task workspace | Context + evidence + decision; AI prepares, human approves |
-| Slack interrupt | Continuous replan, not a static daily plan |
-| Role / Memory | Stakeholder graph + moat — not just inbox triage |
-| Day complete | Emotional payoff: critical work cleared |
+| The Waze moment | Continuous replan, not a static daily plan |
+| Day complete | Critical work cleared — not inbox zero |
 
 ## Deploy (GitHub Pages)
 
-Repo is set up for Pages from `gh-pages` branch or Actions. After push:
-
 ```bash
 cd next
-npm run build
-# static files in dist/ — HashRouter, works on any static host
+VITE_BASE=/next-work-execution/ npm run build
+npx gh-pages -d dist
 ```
-
-Or: `npx serve dist` for a local share session on the same network.

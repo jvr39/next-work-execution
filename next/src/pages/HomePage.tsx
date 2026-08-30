@@ -17,7 +17,6 @@ export function HomePage() {
     update,
   } = useNext()
   const [key, setKey] = useState(0)
-  const [showRoute, setShowRoute] = useState(false)
 
   useEffect(() => {
     if (!hydrated) return
@@ -28,7 +27,6 @@ export function HomePage() {
 
   useEffect(() => {
     setKey((k) => k + 1)
-    setShowRoute(false)
   }, [current?.id, state.replanApplied])
 
   useEffect(() => {
@@ -156,28 +154,10 @@ export function HomePage() {
 
             {afterThis ? (
               <p className="mt-8 text-sm text-muted-foreground">
-                After this:{' '}
-                <span className="text-foreground">{afterThis.title}</span>
+                After this: {afterThis.title}
               </p>
             ) : (
               <p className="mt-8 text-sm text-muted-foreground">Last item in the route.</p>
-            )}
-
-            <button
-              type="button"
-              onClick={() => setShowRoute((v) => !v)}
-              className="mt-6 text-[12px] tracking-wide text-muted-foreground uppercase transition-colors hover:text-foreground"
-            >
-              {showRoute ? 'Hide today’s route' : 'See today’s route'}
-            </button>
-
-            {showRoute && (
-              <ul className="mt-4 space-y-2 border-l border-border pl-4 text-sm text-ink-soft">
-                <li className="text-foreground">{current.title} · now</li>
-                {upcoming.map((item) => (
-                  <li key={item.id}>{item.title}</li>
-                ))}
-              </ul>
             )}
           </section>
         </div>

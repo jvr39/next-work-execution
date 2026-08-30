@@ -102,12 +102,6 @@ export function InspectLinks() {
         >
           Role
         </Link>
-        <Link
-          to="/memory"
-          className="block rounded-lg px-3 py-2 text-xs text-ink-soft hover:bg-secondary/80 hover:text-foreground"
-        >
-          Memory
-        </Link>
       </div>
     </details>
   )
@@ -133,7 +127,7 @@ export function DemoBar() {
             onClick={openInterrupt}
             className="rounded-full border border-border px-3 py-1 transition-colors hover:border-urgent hover:text-urgent-foreground"
           >
-            Simulate Slack interrupt
+            The Waze moment
           </button>
           <button
             type="button"
@@ -168,7 +162,7 @@ export function InterruptModal() {
       <div className="animate-morph surface w-full max-w-lg rounded-3xl p-6 sm:p-8">
         <p className="text-eyebrow text-urgent-foreground">Route changing</p>
         <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-          Something just moved.
+          The Waze moment.
         </h2>
         <div className="mt-5 rounded-2xl bg-secondary/70 p-4">
           <p className="text-[12px] tracking-wide text-muted-foreground uppercase">
@@ -205,9 +199,8 @@ export function CoachHint({ onDismiss }: { onDismiss: () => void }) {
     <div className="animate-rise mb-8 rounded-2xl border border-urgent/30 bg-urgent/10 px-4 py-3 text-[13px] leading-relaxed text-urgent-foreground">
       <div className="flex items-start justify-between gap-3">
         <p>
-          <span className="font-medium">Prototype tip:</span> press <strong>Start</strong>, make a
-          decision, then <strong>Done</strong>. After your first task, new information will force a
-          replan.
+          <span className="font-medium">The Waze moment is the product:</span> Start, decide, Done.
+          After the first task, new information will replan the route. That interrupt is the demo.
         </p>
         <button
           type="button"
