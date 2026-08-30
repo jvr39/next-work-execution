@@ -38,14 +38,21 @@ export function LandingPage() {
       <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center">
         <button
           type="button"
+          onClick={() => navigate('/vision')}
+          className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-8 font-display text-xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform hover:-translate-y-0.5"
+        >
+          CS vision deck
+          <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+        </button>
+        <button
+          type="button"
           onClick={() => {
             enterDemo()
             navigate('/morning')
           }}
-          className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-8 font-display text-xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform hover:-translate-y-0.5"
+          className="inline-flex h-16 items-center justify-center rounded-2xl border border-input px-7 font-display text-lg text-ink-soft transition-colors hover:bg-secondary/70"
         >
           Enter Joe&apos;s day
-          <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
         </button>
         <button
           type="button"
@@ -60,8 +67,8 @@ export function LandingPage() {
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground">
-        ~8 minutes for the full loop. Use the prototype bar at the bottom to simulate a Slack
-        interrupt or reset.
+        Start with the vision deck (fancy mock walkthrough), then the live day loop. Use the
+        prototype bar to simulate a Slack interrupt or reset.
       </p>
     </Page>
   )

@@ -2,7 +2,8 @@
 
 **Purpose:** What a strong Customer Success day should feel like in the demo.  
 **Rule:** One Next at a time. Joe does the craft. Next carries admin + triage.  
-**Live demo today:** Joe = CS Director (still fine — same loop for an IC CSM with smaller book).
+**Live demo today:** Joe = CS Director (still fine — same loop for an IC CSM with smaller book).  
+**Fancy vision deck:** In the app, open **CS vision deck** (`#/vision`) — interactive mock walkthrough.
 
 ---
 
@@ -93,13 +94,14 @@ Next asks: **Replan?**
 
 ---
 
-### Card 4 — Batch approvals (admin crush)
+4. **Batch approvals (admin crush)**  
 **Next:** Approve 3 customer responses  
 **Prepared:** Drafts with context  
-**Joe does:** Approve / edit / route one to Support if it’s a ticket  
+**Also on this beat (or its own card):** **Open Support tickets** for Joe’s book — unresolved / aging / angry. Filter: needs CSM eyes vs Support-only.  
+**Joe does:** Approve replies · warm-handoff pure tickets · **intervene** on the one where relationship/renewal is at risk  
 **Done**
 
-*Best practice:* Don’t fix Support tickets as CSM — warm-handoff.
+*Best practice:* Connected to Support. Visibility ≠ owning every ticket. Intervene when necessary.
 
 ---
 
@@ -119,6 +121,20 @@ Globex adoption dig can wait until tomorrow.
 **Enough for today.**
 
 *Best practice:* Not every task today. Protect energy and quality.
+
+---
+
+## Connected systems (CS demo — remember)
+
+Next is plugged into the CS stack, including:
+- Calendar, email, Slack
+- CRM / renewal data
+- Health / usage
+- Gong (or call recordings)
+- **Support / ticketing** — unresolved tickets visible; CSM can filter and intervene
+
+**Ticket card pattern (optional Next):**  
+“3 unresolved tickets on your book — 1 looks renewal-sensitive (Acme, open 4 days, tone escalating). Support owns the other two. Intervene on Acme?”
 
 ---
 
