@@ -19,13 +19,24 @@ Fill this in so every agent shares the same facts. Chief of Staff should keep it
 
 ## Product vision (locked)
 
-**Goal:** Get the user to a point where all they do is complete work — they are not bogged down by mental load or admin tasks.
+**Goal:** User only leans on their expertise to execute. Next carries mental load and admin.
+
+**Full product (north star):**
+- Records meetings
+- Records screen / workflows
+- Reads all communication
+- Plugs into every tool
+- Single source of truth for the job
+- User sees Next, does the skilled work, approves what goes out
+
+**Today:** Interactive demo that *feels* like that (not the full plumbing yet).  
+Live: https://jvr39.github.io/next-work-execution/
 
 Implications:
-- Horizontal audience (“anyone”), not vertical-only (e.g. not CS-only)
-- Success = less planning/triage time, more execution time
-- Admin and prioritization are handled *for* the user; the human mainly acts and approves
-- Avoid becoming another task manager with more fields, views, and dashboards
+- Horizontal (“anyone”)
+- Build in layers: feel it → manual inputs → auto capture → full lean-back
+- Never become a dashboard/to-do app
+- Don’t promise “plugs into everything” on day one — show the loop, add pipes over time
 
 ## Constraints
 
