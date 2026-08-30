@@ -2,41 +2,31 @@
 
 ## Findings
 
-**1. Strategic thesis:** Win by owning the *execution loop*, not the task graph. Competitors sell lists, boards, or chat. Next sells relief: system picks Next, drafts admin, human only acts/approves, replans on interrupt. Moat = daily habit of “open → do” plus memory/role context that makes Next better than a blank ChatGPT tab. Solo-founder constraint forces a single wedge message and self-serve distribution — no sales team, no enterprise motion.
+**1. Thesis:** Win the *execution loop*, not the task graph. Competitors sell lists, boards, or chat. Next sells relief: system picks Next, drafts admin, human only acts/approves, replans on interrupt. Moat = daily “open → do” habit plus role/memory that beats a blank ChatGPT tab. Solo founder ⇒ one wedge message, self-serve only.
 
-**2. Beachhead vs long-term:** Long-term = anyone (horizontal). First = **high-interrupt individual knowledge workers** (leads/managers/ICs) who live in calendar + Slack/email and feel decision fatigue about *what to do now*. Use role packs (e.g. CS director demo) as *acquisition templates*, never as brand identity. Do not market “Next for CS” or “Next for job seekers.”
+**2. Beachhead vs long-term:** Long-term = anyone. First = **high-interrupt individual KWs** (leads/managers/ICs) drowning in calendar + Slack/email decision fatigue. Role packs (CS director demo) are *acquisition templates*, never brand. Never market “Next for CS.”
 
-**3. Positioning:**
-| vs | They are | Next is |
-| --- | --- | --- |
-| Todoist | Capture/list | One Next; lists are failure mode |
-| Asana / ClickUp | Team dashboards & status | Individual execution; no board-first UI |
-| Motion | Calendar optimization | Work *unit* execution + approve |
-| ChatGPT | You still triage & manage | System sequences work; you complete |
-
-Tagline test: *Stop managing work. Just do Next.*
+**3. Positioning:** Todoist = lists → Next = one Next. Asana/ClickUp = team dashboards → Next = individual execution. Motion = calendar optimize → Next = work-unit execute + approve. ChatGPT = you still triage → Next sequences; you complete. Line: *Stop managing work. Just do Next.*
 
 **4. Phased GTM**
 | Phase | Do | Kill if |
 | --- | --- | --- |
-| **0–30d** | Ship public prototype link + 1 landing (outcome copy). 30+ structured demos (founders/ops/leads). Track “gets it in <2 min” %. Waitlist only. | <40% of demos grasp “not a to-do app” without coaching |
-| **30–90d** | Self-serve alpha (manual inbox/calendar paste OK). Price experiment ($X/mo). Metric: D7 return for *execution*, not grooming. | <15% D7 retention **or** <10% waitlist→paid |
-| **90–180d** | Double down on one channel that produced paid users (likely founder Twitter/LinkedIn + product-led demo). Add 1–2 role packs as onboarding, not vertical products. | Still founder-demo-dependent for every activation; CAC/time > value of solo capacity |
+| **0–30d** | Public prototype + outcome landing. 30 structured demos. Track “gets it <2 min.” Waitlist only. | <40% grasp “not a to-do” uncoached |
+| **30–90d** | Self-serve alpha (paste OK). Price test. Metric: D7 return for *execution*. | <15% D7 **or** <10% waitlist→paid |
+| **90–180d** | Scale the *one* channel that produced paid users. +1–2 role packs as onboarding. | Still needs Joseph on every activation |
 
-**5. Explicitly NOT do:** Enterprise/outbound sales; team seats/SSO GTM; feature parity with Asana/ClickUp; paid ads before organic “gets it” proof; vertical brand lock-in; content/SEO mill; building “AI to-do with more views.”
+**5. NOT do:** Enterprise/outbound; team seats/SSO GTM; Asana parity; paid ads before “gets it” proof; vertical brand lock-in; SEO/content mill; “AI to-do with more views.”
 
 ## Recommendation
 
-Sequence: **message proof → thin paid self-serve → one channel scale.** Beachhead = interrupt-heavy individuals; keep vision horizontal via language and role packs. Kill any GTM that requires Joseph on every sale or turns Next into a dashboard.
+**Message proof → thin paid self-serve → one channel.** Beachhead = interrupt-heavy individuals; stay horizontal via language + role packs. Kill any GTM requiring Joseph on every sale or a dashboard product.
 
 ## Risks
 
-- Prototype (CS day) reads as vertical → wrong ICP inbound.
-- ChatGPT substitutes “good enough” unless Next wins on *sequencing + replan habit*.
-- Solo capacity: too many channels = zero learning.
+Prototype reads vertical → wrong ICP. ChatGPT “good enough” unless sequencing/replan wins. Multi-channel = zero learning.
 
 ## Open questions
 
-1. First paid offer: subscription vs founder-lifetime?
-2. v1 “admin” surface: paste-in vs real calendar/email connect?
-3. Which single distribution channel does Joseph already have asymmetric reach in?
+1. Paid offer: subscription vs founder-lifetime?
+2. v1 admin: paste-in vs calendar/email connect?
+3. Joseph’s single asymmetric distribution channel?
