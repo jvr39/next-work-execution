@@ -1,16 +1,20 @@
-# Pitch v3 — response to “honesty as a pose”
+# Pitch v4 — response to “deck interviewing itself”
 
-Accepted: v2 confessed so hard it stopped selling. Right artifact is interviews. Until then, a **short** deck that sells the bet and names the killer risk — once, not sixteen times.
+Accepted: v3 was the best rewrite and still the wrong artifact. Team debate: [team-debate-2026-08-30.md](./team-debate-2026-08-30.md).
 
-## Changes
-- 8 slides (was 16). Killed “Where this dies,” “Honest status,” and the clickable-fiction sermons. Stage is one line on the title: Prototype. Pre-revenue.
-- **Killer slide:** Salesforce / HubSpot / Microsoft own the data — existential, not a peer to overbuild.
-- Dropped the unowned 40% stat.
-- Ask: **$400k / 90 days** — interviews, Solo MVP, 25 real users.
-- Morning + home + vision briefing: **one Next only**. No draft route.
-- Memory ripped from default nav; creepy 1.4x / blind-spot seeds removed.
-- Interrupt control labeled **The Waze moment** — that is the demo.
-- Apostrophes in source are ASCII / JSX entities so they survive minify.
+## What we changed (once)
 
-## Still true
-A quote from a CS director who would pay today still outsells this entire site. Go get it.
+- Raise math: **$400k ≈ 15 months**; first 90 days = validation spend + hard gates.
+- Interviews: **10 in ~10 days**, kit + log. Not 4 weeks of slogans.
+- Dropped “Waze is the product” / “too slow or too siloed.”
+- Home: **only one Next** — no “After this” list peek.
+- Waitlist posts to owner email (FormSubmit), not localStorage.
+- Landing leads with the day, not a confession funnel.
+
+## What we did not invent
+
+Customer quotes. Paid interest. Real Slack detection.
+
+## Owner job
+
+Book calls. Fill [interview-log.md](./interview-log.md). Next update the critic wants is a name, a quote, and a dollar figure.

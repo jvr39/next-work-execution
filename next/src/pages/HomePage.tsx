@@ -10,7 +10,6 @@ export function HomePage() {
     state,
     hydrated,
     current,
-    upcoming,
     dayComplete,
     skipAction,
     clearHandoff,
@@ -101,8 +100,6 @@ export function HomePage() {
 
   if (!current) return null
 
-  const afterThis = upcoming[0]
-
   return (
     <>
       <TopBar right={<InspectLinks />} />
@@ -120,12 +117,13 @@ export function HomePage() {
 
           {state.justAdvanced && (
             <p className="mt-6 text-sm text-urgent-foreground">
-              {state.replanApplied ? 'Route updated. Onto the next thing.' : 'Onto the next thing.'}
+              {state.replanApplied ? 'Plan updated. Onto the next thing.' : 'Onto the next thing.'}
             </p>
           )}
 
           <section className="mt-12 max-w-xl">
-            <h1 className="font-display text-[clamp(2rem,5.5vw,3.1rem)] font-semibold leading-[1.05] tracking-tight">
+            <p className="text-eyebrow text-urgent-foreground">Next</p>
+            <h1 className="font-display mt-3 text-[clamp(2rem,5.5vw,3.1rem)] font-semibold leading-[1.05] tracking-tight">
               {current.title}
             </h1>
             <p className="mt-5 text-[16px] leading-relaxed text-ink-soft">{current.why}</p>
@@ -151,14 +149,6 @@ export function HomePage() {
                 Not this
               </button>
             </div>
-
-            {afterThis ? (
-              <p className="mt-8 text-sm text-muted-foreground">
-                After this: {afterThis.title}
-              </p>
-            ) : (
-              <p className="mt-8 text-sm text-muted-foreground">Last item in the route.</p>
-            )}
           </section>
         </div>
       </Page>

@@ -3,19 +3,20 @@
 **One line:** One Next. You do the craft.
 
 ## Problem
-GTM people spend the day managing work across inbox, calendar, CRM, Slack, and tickets — instead of doing the job.
+GTM people spend the day managing work across inbox, calendar, CRM, Slack, and tickets.
 
 ## Product
-One Next at a time. Prep done. Human judgment. Replan when reality changes (Waze). Stop at enough for today.
+One Next. Prep done. Human judgment. Replan when reality changes. Stop at enough for today.  
+V1: calendar + paste — not autonomous Slack reading.
 
 ## The fight
-Salesforce, HubSpot, and Microsoft own the data. Productivity apps are a crowded shelf. The systems of record are the existential threat.
+Salesforce, HubSpot, and Microsoft own the data. That is existential. We do not win by hoping they stay slow.
 
-## Who
-CS, Sales, BDR, RevOps. Demo is a CS day.
+## Raise
+**$400k ≈ 15 months runway.** First 90 days = prove/kill gate (~$60–80k spend) with hard metrics.
 
-## Ask
-**$400k / 90 days** — 10 interviews, Solo MVP, 25 people on real work. Intros to CS and Sales operators.
+## Ask now
+Intros to CS/Sales operators for interviews this week.
 
-## Feel it
+## Links
 https://jvr39.github.io/next-work-execution/#/pitch

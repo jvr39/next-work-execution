@@ -127,7 +127,7 @@ export function DemoBar() {
             onClick={openInterrupt}
             className="rounded-full border border-border px-3 py-1 transition-colors hover:border-urgent hover:text-urgent-foreground"
           >
-            The Waze moment
+            Simulate interrupt
           </button>
           <button
             type="button"
@@ -162,8 +162,9 @@ export function InterruptModal() {
       <div className="animate-morph surface w-full max-w-lg rounded-3xl p-6 sm:p-8">
         <p className="text-eyebrow text-urgent-foreground">Route changing</p>
         <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-          The Waze moment.
+          New information. New Next.
         </h2>
+        <p className="mt-2 text-sm text-muted-foreground">Scripted example — not live Slack reading.</p>
         <div className="mt-5 rounded-2xl bg-secondary/70 p-4">
           <p className="text-[12px] tracking-wide text-muted-foreground uppercase">
             {interruptEvent.from} · {interruptEvent.channel}
@@ -199,8 +200,9 @@ export function CoachHint({ onDismiss }: { onDismiss: () => void }) {
     <div className="animate-rise mb-8 rounded-2xl border border-urgent/30 bg-urgent/10 px-4 py-3 text-[13px] leading-relaxed text-urgent-foreground">
       <div className="flex items-start justify-between gap-3">
         <p>
-          <span className="font-medium">The Waze moment is the product:</span> Start, decide, Done.
-          After the first task, new information will replan the route. That interrupt is the demo.
+          <span className="font-medium">One Next. Then Done.</span> After the first task, hit
+          Simulate interrupt for a scripted replan. That feeling is the bet — the detection is not
+          built yet.
         </p>
         <button
           type="button"

@@ -42,8 +42,8 @@ export const csVisionSlides: VisionSlide[] = [
   {
     id: 'interrupt',
     chapter: 'Replan',
-    title: 'The Waze moment.',
-    line: 'New information lands. Next inserts a new Next and protects fixed meetings. Plans are not sacred.',
+    title: 'New information. New Next.',
+    line: 'When the world moves, the plan moves. Fixed meetings stay. Lower work waits.',
     mock: 'interrupt',
   },
   {

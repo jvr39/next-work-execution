@@ -59,16 +59,22 @@ Implications:
 
 ## Current priorities (max 3)
 
-1. Owner running small pitches with demo + pitch kit
-2. Capture feedback after each pitch (love / confuse / pay?)
-3. No full build yet — clickthrough self-serve screens only if owner asks
+1. **Customer interviews** — kit in [interview-kit.md](./interview-kit.md); log in [interview-log.md](./interview-log.md). Target ≥10 in ~10 days.
+2. Freeze pitch polish until the log has real quotes + priced interest.
+3. Thin Solo MVP only after interview gate (calendar + paste + one Next + replan).
+
+## Raise (locked framing)
+
+- Ask: **$400k ≈ 15 months** runway (founder + one builder).
+- First 90 days = validation gate (~$60–80k spend), not the whole raise.
+- Day 30 / Day 90 gates: see [team-debate-2026-08-30.md](./team-debate-2026-08-30.md).
 
 ## Pitch
 
-- Talk track + checklist: [PITCH.md](../PITCH.md)
+- Talk track: [PITCH.md](../PITCH.md)
 - Leave-behind: [pitch-one-pager.md](./pitch-one-pager.md)
+- Latest critique response: [pitch-teardown-response.md](./pitch-teardown-response.md)
 - Demo: https://jvr39.github.io/next-work-execution/
-- Self-serve map (later): [next-self-serve-prototype-outline.md](./next-self-serve-prototype-outline.md)
 
 ## Open decisions
 

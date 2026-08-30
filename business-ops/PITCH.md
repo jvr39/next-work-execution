@@ -1,9 +1,8 @@
 # Next — small pitch kit
 
-**Use this when you show someone.**  
 **Deck:** https://jvr39.github.io/next-work-execution/#/pitch  
 **Demo:** https://jvr39.github.io/next-work-execution/#/  
-**Time:** ~6 minutes + the Waze interrupt
+**Interviews first:** [interview-kit.md](./playbooks/interview-kit.md)
 
 ---
 
@@ -13,49 +12,36 @@ One Next. You do the craft.
 
 ---
 
-## What to say (talk track)
+## Talk track (~6 min)
 
-### 1. Hook (20 sec)
-Most GTM tools make you manage work — lists, boards, inboxes.  
-Next puts **one thing** in front of you. You do the skilled part. Done. Next.
+### 1. Hook
+GTM tools make you manage work. Next puts **one thing** in front of you. Done. Next.
 
-### 2. Who (15 sec)
-GTM first: CS, Sales, BDR, RevOps. I’ll show **CS**.
+### 2. Who
+CS, Sales, BDR, RevOps. Demo is CS.
 
-### 3. The product (40 sec)
-The day is routed. Prep is done. You judge.  
-When Slack blows up the plan, it replans — like Waze.  
-You stop at enough for today, not inbox zero.
+### 3. Product
+Prep done. You judge. When new info lands, replan. Stop at enough for today.  
+**V1 inputs:** calendar + paste — not magic Slack reading yet.
 
-### 4. The real fight (30 sec)
-Salesforce, HubSpot, and Microsoft already hold the data this product needs.  
-If they ship a credible one-Next on top of CRM + inbox + calendar, we are in trouble.  
-We only win as the cross-stack execution habit they are too slow or too siloed to become.
+### 4. The fight
+Salesforce, HubSpot, Microsoft own the data. If they ship one-Next on top, we’re in trouble.  
+We do **not** win by hoping they’re slow. We win only as a cross-stack habit starting from human-provided context.
 
-### 5. Show the demo (4 min)
-Open **Enter Joe’s day**. Do one task. Hit **The Waze moment**. That interrupt is the product.
+### 5. Demo
+Enter Joe’s day → Start → Done → **Simulate interrupt** (scripted).
 
-### 6. The ask (30 sec)
-Raising **$400k** for 90 days: 10 interviews, a thin Solo MVP, 25 people on real work.  
-Stop if nobody will pay or connect tools.  
-Wanted: capital + intros to CS/Sales operators who will take a blunt interview this month.
-
----
-
-## If they only remember three things
-
-1. One Next — not a list.  
-2. The Waze moment is the product.  
-3. Incumbents own the data. That is the company-killing risk.
+### 6. Ask
+**$400k ≈ 15 months runway.** First 90 days = prove/kill gate (~$60–80k spend).  
+Wanted now: intros to CS/Sales operators for interviews this week. Capital after evidence.
 
 ---
 
 ## After — note this
 
-- Their role: ________  
-- What they loved: ________  
-- What felt fake: ________  
-- Would they try / pay?: ________  
-- Intro to a CS director?: ________  
+- Role / company: ________  
+- Loved / fake: ________  
+- Would pay?: $________  
+- Exact quote: ________  
 
-Bring those notes back. One real quote beats this deck.
+Log it in [interview-log.md](./playbooks/interview-log.md).

@@ -1,41 +1,39 @@
 import { useState, type FormEvent } from 'react'
 
-const KEY = 'next.waitlist.v1'
+/** Posts to FormSubmit → owner Gmail. Free, no API key. */
+const FORMSUBMIT = 'https://formsubmit.co/ajax/jrivera3989@gmail.com'
 
-function readList(): string[] {
-  try {
-    const raw = localStorage.getItem(KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw) as string[]
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
-  }
-}
-
-function saveEmail(email: string) {
-  const list = readList()
-  const normalized = email.trim().toLowerCase()
-  if (!normalized || list.includes(normalized)) return list.length
-  const next = [...list, normalized]
-  localStorage.setItem(KEY, JSON.stringify(next))
-  return next.length
-}
-
-/** Local prototype waitlist — replace with real backend before real launch */
 export function WaitlistForm({ dark = false }: { dark?: boolean }) {
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'ok' | 'bad'>('idle')
+  const [status, setStatus] = useState<'idle' | 'ok' | 'bad' | 'err' | 'sending'>('idle')
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus('bad')
       return
     }
-    saveEmail(email)
-    setStatus('ok')
-    setEmail('')
+    setStatus('sending')
+    try {
+      const res = await fetch(FORMSUBMIT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          _subject: 'Next waitlist',
+          _template: 'table',
+          source: typeof window !== 'undefined' ? window.location.href : 'next',
+        }),
+      })
+      if (!res.ok) throw new Error('submit failed')
+      setStatus('ok')
+      setEmail('')
+    } catch {
+      setStatus('err')
+    }
   }
 
   const inputClass = dark
@@ -43,8 +41,8 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
     : 'h-12 flex-1 rounded-full border border-input bg-card/80 px-5 text-sm outline-none focus:border-urgent'
 
   const btnClass = dark
-    ? 'h-12 rounded-full bg-teal-300 px-6 text-sm font-semibold text-[#062018]'
-    : 'h-12 rounded-full bg-urgent px-6 text-sm font-semibold text-urgent-foreground'
+    ? 'h-12 rounded-full bg-teal-300 px-6 text-sm font-semibold text-[#062018] disabled:opacity-50'
+    : 'h-12 rounded-full bg-urgent px-6 text-sm font-semibold text-urgent-foreground disabled:opacity-50'
 
   return (
     <div className="w-full max-w-md">
@@ -61,19 +59,25 @@ export function WaitlistForm({ dark = false }: { dark?: boolean }) {
           placeholder="you@company.com"
           className={inputClass}
           aria-label="Email for waitlist"
+          disabled={status === 'sending'}
         />
-        <button type="submit" className={btnClass}>
-          Join waitlist
+        <button type="submit" className={btnClass} disabled={status === 'sending'}>
+          {status === 'sending' ? 'Sending…' : 'Join waitlist'}
         </button>
       </form>
       {status === 'ok' ? (
         <p className={dark ? 'mt-3 text-sm text-teal-200/90' : 'mt-3 text-sm text-urgent-foreground'}>
-          You&apos;re on the list. We&apos;ll email when there is something to try.
+          Got it. We&apos;ll email when there is something to try.
         </p>
       ) : null}
       {status === 'bad' ? (
         <p className={dark ? 'mt-3 text-sm text-rose-300' : 'mt-3 text-sm text-red-700'}>
           Enter a valid email.
+        </p>
+      ) : null}
+      {status === 'err' ? (
+        <p className={dark ? 'mt-3 text-sm text-rose-300' : 'mt-3 text-sm text-red-700'}>
+          Couldn&apos;t send. Email jrivera3989@gmail.com and we&apos;ll add you.
         </p>
       ) : null}
     </div>

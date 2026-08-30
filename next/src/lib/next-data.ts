@@ -689,7 +689,7 @@ export const prototypeGuide = [
     body: 'Read the evidence. Make a decision. Approve anything AI prepared.',
   },
   {
-    title: 'The Waze moment',
-    body: 'After the first task, hit The Waze moment in the bar. New information. New Next. That is the product.',
+    title: 'Simulate interrupt',
+    body: 'After the first task, hit Simulate interrupt. Scripted replan — the feeling we want to earn with real inputs later.',
   },
 ]
