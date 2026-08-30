@@ -55,6 +55,22 @@ Next is **AI-powered**. It can suggest *how* to do something or *what approach* 
 
 AI prepares and guides. Humans perform. Humans approve what goes out.
 
+## Cut admin near zero (owner-locked)
+
+Big goal: **admin work → almost none.**
+
+Examples of admin Next should eat:
+- Sorting what matters
+- Prepping agendas / context
+- **Calendar recommendations** (when to do what, what to protect)
+- Finding time and **scheduling syncs**
+- On enterprise: your Next can **talk to someone else’s Next** — “you’re both free here → book it”
+
+**Caveat:** Some jobs *are* mostly admin. That’s fine.  
+Next helps most when the job is **strategic / skilled** — e.g. customer success, solutions engineer, sales, and other tech roles — where admin steals time from the real work.
+
+Still: human approves sends, spends, and calendar commits that matter.
+
 ## What Next is
 
 - A work **execution** system (not a to-do list or dashboard)

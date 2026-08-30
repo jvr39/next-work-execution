@@ -13,7 +13,7 @@ Fill this in so every agent shares the same facts. Chief of Staff should keep it
 ## Offer
 
 - **What we sell:** **Next** — a work execution tool for *anyone*. Not a to-do list or dashboard. It removes decision overhead and admin so the user mostly just does the next piece of work.
-- **Who it's for (ICP):** Knowledge workers and operators who feel buried in planning, triage, and context-switching (individuals first; teams later).
+- **Who it's for (ICP):** People in skilled / strategic roles (CS, SE, sales, tech, etc.) where admin steals focus. Some jobs are pure admin — Next helps less there. Individuals first; enterprise later (Next-to-Next scheduling).
 - **Price / packaging:** TBD (lean toward self-serve software; kits only as acquisition wedges)
 - **Delivery model:** Product (software) — low ongoing owner involvement is a hard constraint
 
