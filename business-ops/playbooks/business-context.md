@@ -53,9 +53,16 @@ Implications:
 
 ## Current priorities (max 3)
 
-1. Owner aligning on vision (in progress — strong)
-2. Self-serve prototype **outline** ready: `playbooks/next-self-serve-prototype-outline.md`
-3. No ship yet — wait for owner “build the clickthrough” / open choices
+1. Owner running small pitches with demo + pitch kit
+2. Capture feedback after each pitch (love / confuse / pay?)
+3. No full build yet — clickthrough self-serve screens only if owner asks
+
+## Pitch
+
+- Talk track + checklist: [PITCH.md](../PITCH.md)
+- Leave-behind: [pitch-one-pager.md](./pitch-one-pager.md)
+- Demo: https://jvr39.github.io/next-work-execution/
+- Self-serve map (later): [next-self-serve-prototype-outline.md](./next-self-serve-prototype-outline.md)
 
 ## Open decisions
 
