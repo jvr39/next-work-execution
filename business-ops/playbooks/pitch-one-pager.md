@@ -14,7 +14,9 @@ AI can suggest an approach. **You** still do the job your way.
 Not a replacement for workers — a way to cut admin near zero.
 
 ## Who
-CS, sales, solutions, creators, tech — anyone paid for judgment, not busywork.
+**GTM first:** Customer Success, Sales, Solutions/SE.  
+**Demo:** a CS day (same loop for the rest of GTM).  
+Long-term: anyone paid for judgment, not busywork.
 
 ## How you’ll buy
 Go to the site → Solo or Small Team → pay with a card → start.

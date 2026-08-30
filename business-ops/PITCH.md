@@ -19,8 +19,9 @@ Next knows your work world so you only do the work — not the admin and mental 
 Next does the opposite. It puts **one thing** in front of you. You do the skilled part. You hit Done. It gives you the next thing.”
 
 ### 2. Who it’s for (20 sec)
-“Anyone whose real job is skill and judgment — CS, sales, SE, creators, tech.  
-Not trying to replace people. Trying to cut admin near zero so they can execute.”
+“First for **GTM teams** — CS, sales, solutions — anyone whose day is customers, inbox, and ‘what now?’  
+I’ll show a **Customer Success** day; same loop for sales or SE.  
+Not replacing people. Cutting admin so they execute.”
 
 ### 3. The day (40 sec)
 “You sit down. It already sorted email, calendar, prep.  

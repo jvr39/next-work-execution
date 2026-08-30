@@ -16,7 +16,17 @@ Next is for **anyone**.
 
 **One-liner:** Next knows your work world so you only have to do the work.
 
-## Day in the life (owner story — locked)
+## Beachhead (owner-locked)
+
+**Who we sell to first:** **GTM teams** — Customer Success, Sales, Solutions Engineers / SE, and close go-to-market cousins.
+
+**Why that group:** Same day shape — customers, calendar, inbox, prep, follow-ups, interrupts. Admin steals time from skilled work.
+
+**Demo use case:** **Customer Success** (Joe’s day). That’s the story we show. Not the only person who can buy.
+
+**Not yet:** Pure creators, generic “anyone,” deep eng/IT-only workflows — later if GTM sticks.
+
+**Brand rule:** Don’t call Next a “CSM-only tool.” Say GTM / customer-facing skilled work; show CS.
 
 You’re a customer success manager. You sit down. Next already knows your world.
 
