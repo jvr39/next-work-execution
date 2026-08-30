@@ -34,6 +34,8 @@ Live: https://jvr39.github.io/next-work-execution/
 
 **Day shape (locked):** Sit down → one task at a time (email, call, deck, 1:1…) → Done → next. Knows the clock, urgency, and “enough for today.” Prep included (e.g. 1:1 agenda). Not inbox-zero / finish-everything.
 
+**Human in charge (locked):** AI suggests approaches. User does the job their way. Not a worker replacement — a focus/productivity tool so skilled people execute without mental load.
+
 Implications:
 - Horizontal (“anyone”)
 - Build in layers: feel it → manual inputs → auto capture → full lean-back

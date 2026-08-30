@@ -43,6 +43,18 @@ Same idea if you’re in **leadership**: follow up with this person, coach so-an
 
 That’s the whole product feeling.
 
+## Human does the job (owner-locked)
+
+Next is **AI-powered**. It can suggest *how* to do something or *what approach* to take.
+
+**The user still owns the work.** They do the job how they see fit. They decide what “good” looks like.
+
+- **Not** here to replace workers  
+- **Here** to cut mental load and keep people focused  
+- Goal = higher productivity through **pure execution on their skill set**
+
+AI prepares and guides. Humans perform. Humans approve what goes out.
+
 ## What Next is
 
 - A work **execution** system (not a to-do list or dashboard)
