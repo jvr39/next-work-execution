@@ -15,7 +15,7 @@ High performers roughly split time like this:
 
 **Morning rule:** Health / risk before inbox rabbit holes.  
 **Priority rule:** Renewal risk + health drops + silent accounts beat “nice” email.  
-**Support rule:** Route tickets to Support; CSM stays relationship owner.  
+**Support rule:** Next is plugged into Support. CSM can **see unresolved tickets**, what’s stuck, and **intervene when needed** — not drown in every ticket. Default: Support owns the ticket; CSM steps in for relationship / risk / escalation.  
 **End of day:** Enough for today ≠ inbox zero.
 
 ---

@@ -42,7 +42,7 @@ Live: https://jvr39.github.io/next-work-execution/
 
 **Human in charge (locked):** AI suggests approaches. User does the job their way. Not a worker replacement — a focus/productivity tool so skilled people execute without mental load.
 
-**Admin near zero (locked):** Calendars, scheduling, prep, sorting. Enterprise: Next can talk to another person’s Next to book syncs. Human still approves real commits. Best fit = strategic roles (CS, SE, sales, tech), not jobs that are admin by nature.
+**Admin near zero (locked):** Calendars, scheduling, prep, sorting. **Connected to the stack** (incl. Support tickets for CS — see unresolved, intervene if needed). Enterprise: Next can talk to another person’s Next to book syncs. Human still approves real commits. Best fit = strategic roles (CS, SE, sales, tech), not jobs that are admin by nature.
 
 Implications:
 - Horizontal (“anyone”)

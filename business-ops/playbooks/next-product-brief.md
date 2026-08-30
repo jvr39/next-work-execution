@@ -10,9 +10,11 @@ Next is for **anyone**.
 - Records **meetings**
 - Records **screen / workflows** (how you actually do the job)
 - Reads **all communication**
-- Plugs into **every tool** you use
+- Plugs into **every tool** you use (CRM, Support, calendar, Slack, etc.)
 - Becomes the **single source of truth** for everything needed to do the job
 - Surfaces **one Next** action; prepares the work; user does the skilled part and approves what goes out
+
+**CS example:** Sees **unresolved support tickets** on the book → CSM filters what matters → **intervenes only when necessary** (relationship/risk). Support still owns normal tickets.
 
 **One-liner:** Next knows your work world so you only have to do the work.
 
