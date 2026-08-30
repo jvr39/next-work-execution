@@ -27,13 +27,27 @@ Use this for **Next for CS / Sales / BDR / RevOps** context. Real companies mix 
 
 ---
 
+## The five pillars (plain English)
+
+| Pillar | Job |
+|--------|-----|
+| **Marketing** | Create interest / pipeline |
+| **Sales** | Book meetings (**BDR/SDR**) + close deals (**AEs**) |
+| **CS / CX** | Keep & grow customers (+ Support often here) |
+| **Solutions / SE** | Win the technical sale |
+| **RevOps** | Make the machine run (CRM, data, forecast) |
+
+**BDR/SDR is not its own pillar** — it usually lives under Sales (sometimes under Marketing for inbound).
+
+---
+
 ## Leadership
 
 | Role | Owns |
 |------|------|
 | **CRO / VP GTM / Head of GTM** | Whole revenue machine: pipeline → close → retain → expand |
 | **CMO / VP Marketing** | Demand, brand, pipeline *creation* (sometimes under CRO, sometimes peer) |
-| **VP Sales** | Hitting quota — new business + often expansion |
+| **VP Sales** | Hitting quota — includes AEs + usually BDR/SDR |
 | **VP Customer Success** (or CX) | Retention, NRR, health, renewals |
 | **VP/Head of Solutions / SE** | Technical win + post-sale technical trust |
 | **Head of RevOps** | Systems, process, data, forecasting hygiene |
