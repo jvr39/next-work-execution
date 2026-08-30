@@ -18,15 +18,24 @@ Next is for **anyone**.
 
 ## Beachhead (owner-locked)
 
-**Who we sell to first:** **GTM teams** — Customer Success, Sales, Solutions Engineers / SE, and close go-to-market cousins.
+**Doors (packaging):**
+- **Next for CS**
+- **Next for Sales**
+- **Next for BDR**
+- **Next for RevOps**
+- **Next for You** (DTC solo or small team)
 
-**Why that group:** Same day shape — customers, calendar, inbox, prep, follow-ups, interrupts. Admin steals time from skilled work.
+**One product underneath.** Doors = language, sample day, suggested tools — not separate apps.
 
-**Demo use case:** **Customer Success** (Joe’s day). That’s the story we show. Not the only person who can buy.
+**Who we sell to first:** GTM doors (CS, Sales, BDR, RevOps).  
+**Demo:** **Next for CS** (Joe’s day).  
+**Next for You:** keep as a door; don’t prioritize build until GTM proves stick + pay.
 
-**Not yet:** Pure creators, generic “anyone,” deep eng/IT-only workflows — later if GTM sticks.
+**Brand rule:** Not “CSM-only.” Say the doors; show CS.
 
-**Brand rule:** Don’t call Next a “CSM-only tool.” Say GTM / customer-facing skilled work; show CS.
+See [packaging-role-doors.md](./packaging-role-doors.md).
+
+## Day in the life (owner story — locked)
 
 You’re a customer success manager. You sit down. Next already knows your world.
 
