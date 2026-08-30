@@ -36,6 +36,8 @@ Live: https://jvr39.github.io/next-work-execution/
 
 **Human in charge (locked):** AI suggests approaches. User does the job their way. Not a worker replacement — a focus/productivity tool so skilled people execute without mental load.
 
+**Admin near zero (locked):** Calendars, scheduling, prep, sorting. Enterprise: Next can talk to another person’s Next to book syncs. Human still approves real commits. Best fit = strategic roles (CS, SE, sales, tech), not jobs that are admin by nature.
+
 Implications:
 - Horizontal (“anyone”)
 - Build in layers: feel it → manual inputs → auto capture → full lean-back
@@ -51,17 +53,17 @@ Implications:
 
 ## Current priorities (max 3)
 
-1. Owner review of draft GTM (`playbooks/next-gtm-strategy.md`)
-2. Landing + waitlist + prototype Loom (message proof)
-3. Generalize product onboarding for “anyone” (keep CS day as demo skin only)
+1. Owner aligning on vision (in progress — strong)
+2. Self-serve prototype **outline** ready: `playbooks/next-self-serve-prototype-outline.md`
+3. No ship yet — wait for owner “build the clickthrough” / open choices
 
 ## Open decisions
 
-- Price shape (sub vs lifetime); Pro test $19 vs $29
-- Primary channel confirm (draft assumes LinkedIn)
-- v1 admin input (paste-first vs calendar vs both)
-- Paywall timing (after first Done vs day-14)
-- 90-day cash ceiling for tools/ads
+- Trial length (7 vs 14)
+- Solo price band (~$19 vs ~$29)
+- Homepage hero story: creator / CS / anyone
+- First connect: calendar only vs calendar + email
+- When to turn outline into clickable prototype (not now unless asked)
 
 ## GTM
 
