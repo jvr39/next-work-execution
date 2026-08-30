@@ -36,15 +36,23 @@ Implications:
 
 ## Current priorities (max 3)
 
-1. Clarify Next positioning vs task managers (wedge: end mental load / admin)
-2. Validate willingness to pay for “only complete work” outcome
-3. Keep go-to-market low-touch (self-serve)
+1. Owner review of draft GTM (`playbooks/next-gtm-strategy.md`)
+2. Landing + waitlist + prototype Loom (message proof)
+3. Generalize product onboarding for “anyone” (keep CS day as demo skin only)
 
 ## Open decisions
 
-- Price model (one-time vs subscription)
-- First distribution channel
-- What “admin” Next automates in v1 (calendar? email? Slack? manual inbox paste?)
+- Price shape (sub vs lifetime); Pro test $19 vs $29
+- Primary channel confirm (draft assumes LinkedIn)
+- v1 admin input (paste-first vs calendar vs both)
+- Paywall timing (after first Done vs day-14)
+- 90-day cash ceiling for tools/ads
+
+## GTM
+
+- Draft: [next-gtm-strategy.md](./next-gtm-strategy.md)
+- Motion: waitlist → invite → self-serve trial → paid (PLG)
+- Beachhead buyers: high-interrupt individual KWs (brand stays horizontal)
 
 ## Voice & brand
 
