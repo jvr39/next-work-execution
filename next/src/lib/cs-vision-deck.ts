@@ -12,8 +12,8 @@ export const csVisionSlides: VisionSlide[] = [
   {
     id: 'open',
     chapter: 'Next for CS',
-    title: 'A day with zero list-management.',
-    line: 'One thing in front of you. You do the craft. Next carries the rest.',
+    title: 'One Next. Not a list.',
+    line: 'Scripted mock of the loop: prep, decide, replan, enough for today. Feeling — not messy-data proof.',
     mock: 'title',
   },
   {

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Brand } from '@/components/Chrome'
+import { WaitlistForm } from '@/components/WaitlistForm'
 import { vcPitchSlides, type PitchSlide } from '@/lib/vc-pitch-deck'
 import { useNext } from '@/lib/next-store'
 import { cn } from '@/lib/utils'
@@ -10,13 +11,30 @@ function SlideBody({ slide }: { slide: PitchSlide }) {
   if (slide.layout === 'title') {
     return (
       <div className="flex min-h-[52vh] flex-col justify-end pb-4">
-        <Brand link={false} size="hero" className="!text-white select-none" />
+        <Brand link={false} size="hero" className="!text-white" />
         <h1 className="font-display mt-10 max-w-3xl text-[clamp(2.2rem,5vw,3.75rem)] leading-[1.05] tracking-tight text-white">
           {slide.title}
         </h1>
         {slide.body ? (
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">{slide.body}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{slide.body}</p>
         ) : null}
+      </div>
+    )
+  }
+
+  if (slide.layout === 'waitlist') {
+    return (
+      <div className="flex min-h-[52vh] flex-col justify-center">
+        <p className="text-eyebrow !text-teal-300/80">{slide.section}</p>
+        <h1 className="font-display mt-4 max-w-3xl text-[clamp(2rem,4.5vw,3.2rem)] leading-[1.06] text-white">
+          {slide.title}
+        </h1>
+        {slide.body ? (
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">{slide.body}</p>
+        ) : null}
+        <div className="mt-10">
+          <WaitlistForm dark />
+        </div>
       </div>
     )
   }
@@ -110,7 +128,7 @@ function SlideBody({ slide }: { slide: PitchSlide }) {
         {slide.title}
       </h1>
       {slide.body ? (
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/60">{slide.body}</p>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70">{slide.body}</p>
       ) : null}
       {slide.bullets ? (
         <ul className="mt-8 max-w-2xl space-y-3">
@@ -167,7 +185,7 @@ export function VcPitchDeckPage() {
 
       <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between px-6 pt-6">
         <p className="text-[11px] tracking-[0.22em] text-white/35 uppercase">
-          Investor deck · {slide.section}
+          Pre-seed deck · {slide.section}
         </p>
         <div className="flex items-center gap-4 text-xs text-white/45">
           <Link to="/vision" className="hover:text-white">

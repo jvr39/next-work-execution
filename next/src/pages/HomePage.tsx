@@ -57,7 +57,7 @@ export function HomePage() {
         <TopBar right={<InspectLinks />} />
         <Page>
           <div className="animate-rise pt-10">
-            <Brand size="hero" link={false} className="select-none" />
+            <Brand size="hero" link={false} />
             <div className="mt-12 flex items-start gap-4">
               <CheckCircle2 className="mt-1 size-8 text-urgent-foreground" />
               <div>
@@ -111,7 +111,7 @@ export function HomePage() {
       <Page>
         <div key={key} className={state.justAdvanced ? 'animate-handoff' : 'animate-rise'}>
           <div className="pt-10 sm:pt-14">
-            <Brand link={false} className="select-none" />
+            <Brand link={false} />
           </div>
 
           {!state.coachDismissed && (

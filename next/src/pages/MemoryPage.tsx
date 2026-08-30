@@ -14,11 +14,11 @@ export function MemoryPage() {
         <div className="animate-rise pt-8">
           <p className="text-eyebrow">Work memory</p>
           <h1 className="font-display mt-3 text-[clamp(1.9rem,4.5vw,2.8rem)] font-semibold leading-tight tracking-tight">
-            What Next learns about Joe over time.
+            Seeded preferences (explanatory — not live learning).
           </h1>
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-            How Next learns Joe&apos;s judgment over time — so priorities feel personal. Seeded
-            memories below; your prototype decisions appear as they happen.
+            These screens show what “knowing Joe” could feel like later. We do not have behavioral
+            memory yet. Prototype decisions you make still leave a trace below.
           </p>
         </div>
 

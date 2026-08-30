@@ -14,15 +14,13 @@ export function LandingPage() {
     <Page className="pt-10 sm:pt-16">
       <div className="animate-rise">
         <p className="text-eyebrow text-urgent-foreground">Interactive prototype</p>
-        <Brand size="hero" link={false} className="mt-4 select-none" />
+        <Brand size="hero" link={false} className="mt-4" />
         <h1 className="font-display mt-8 max-w-2xl text-[clamp(1.8rem,4.5vw,2.75rem)] font-semibold leading-[1.12] tracking-tight">
-          A work execution system whose only job is to answer:{' '}
-          <span className="text-urgent-foreground">What should I do next?</span>
+          One clear Next. You do the craft.
         </h1>
         <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink-soft">
-          You&apos;re stepping into a day in the life of Joe, a Customer Success director. No real
-          Slack or CRM — the point is the feeling: open the app, follow the route, stop managing a
-          to-do list.
+          Scripted prototype of a CS day. Shows the loop we want to protect — not proof we can assemble
+          messy CRM/Gong/Slack data yet.
         </p>
       </div>
 

@@ -71,10 +71,13 @@ VP / Head of Marketing
 
 ---
 
-## Sales
+## Sales (includes BDR/SDR)
 
 ```
 VP Sales
+ ├── Director / Manager, SDR/BDR
+ │    ├── Inbound SDRs
+ │    └── Outbound BDRs
  ├── Sales Managers (by segment or region)
  │    ├── AEs (Account Executives)     — own deals, close
  │    └── AMs (Account Managers)       — some orgs; often overlaps CS
@@ -83,25 +86,15 @@ VP Sales
  └── SMB / Velocity AEs
 ```
 
-**Partners with:** BDR/SDR (sourced meetings), SE (demos/POV), CS (handoff), RevOps (CRM/forecast).
+**Partners with:** SE (demos/POV), CS (handoff), RevOps (CRM/forecast), Marketing (inbound).
 
-**Next door:** **Next for Sales**
+**Next doors:** **Next for Sales** · **Next for BDR**
 
 ---
 
-## BDR / SDR (pipeline creation)
+## BDR / SDR detail (under Sales)
 
-```
-Director / Manager, SDR/BDR
- ├── Inbound SDRs     — work inbound leads
- ├── Outbound BDRs    — prospect + sequence
- └── Sometimes dual-role “full-cycle” junior AEs
-```
-
-Often reports to **Sales**; sometimes to **Marketing** (inbound).
-
-**Next door:** **Next for BDR**
-
+Same pod as above — called out because Next has a **Next for BDR** door. Org-wise they still sit under the Sales pillar.
 ---
 
 ## Customer Success / Customer Experience

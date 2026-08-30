@@ -53,7 +53,7 @@ export function OnboardingPage() {
       />
       <Page>
         <div className="pt-8">
-          {step === 0 && <Brand size="hero" link={false} className="select-none" />}
+          {step === 0 && <Brand size="hero" link={false} />}
           <p className={cn('text-eyebrow', step === 0 ? 'mt-8' : 'mt-2')}>
             Teach me my job · Step {Math.min(step + 1, steps.length)} of {steps.length}
           </p>

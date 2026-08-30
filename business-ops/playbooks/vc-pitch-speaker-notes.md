@@ -1,52 +1,24 @@
-# Next — VC pitch (speaker notes)
+# Next — VC pitch speaker notes (honest pre-seed)
 
-**Live deck:** https://jvr39.github.io/next-work-execution/#/pitch  
-**Keys:** ← → or Space  
+**Live:** https://jvr39.github.io/next-work-execution/#/pitch  
 
-Use this if you present offline. ~10–12 minutes + demo.
+Open with: “This is a prototype. The demo is scripted fiction. Here’s the bet, the risks, and what we need to prove.”
 
----
+1. **Title** — One clear Next. Stage: pre-seed prototype.  
+2. **Problem** — Coordination tax; hypothesis with industry color — must interview.  
+3. **Bet** — Execution route ≠ task manager.  
+4. **What we’re building** — Loop + narrow inputs first.  
+5. **What the demo is** — Feeling, not messy-data proof.  
+6. **Why try now** — Models make it worth attempting; not solved.  
+7. **Beachhead** — GTM / CS demo.  
+8. **Model** — Price band is a guess.  
+9. **Near-term plan** — 10 interviews → kill criteria → Solo MVP.  
+10. **Competition** — Crowded; contested wedge.  
+11. **Risks** — Wrong Next, bad context, incumbents, overbuild.  
+12. **Moat** — Aspirational only.  
+13. **Traction** — Zero revenue; zero interviews logged.  
+14. **Team** — Joseph.  
+15. **Ask** — Prove/kill in 90 days; amount TBD; intros.  
+16. **Waitlist** — Then demo if they want.
 
-## 1. Title
-**The operating layer for skilled work.**  
-Next understands the job, absorbs coordination, routes the day — judgment stays human.
-
-## 2. Problem
-Skilled GTM people drown in coordination (~40% admin). Tools multiplied; context didn’t. They manage work instead of doing it.
-
-## 3. Insight
-Task managers make users manage lists. Wrong product. People want one Next, prep done, plans that replan.
-
-## 4. Solution
-Work execution system. Connected stack. One Next. Human decides/approves. Interrupts replan. Enough for today ≠ inbox zero.
-
-## 5. Product
-Not dashboards/lists/chat. See next → do craft → Done. Human owns judgment; Next owns triage/prep/admin.
-
-## 6. Why now
-AI can assemble cross-tool context. Buyers already pay for planners and still feel load. Need sanctioned tools that actually run the day.
-
-## 7. Market
-Beachhead GTM: CS · Sales · BDR · RevOps. Demo = CS. Brand broader later. Buyer = IC/manager buying time back.
-
-## 8. Model
-Self-serve Solo / Small Team. ~$19–29/user/mo to test. Habit → team → Next-to-Next scheduling.
-
-## 9. GTM
-CS demo → waitlist → self-serve. LinkedIn + warm intros. Kill if no switch / no trust / no daily open.
-
-## 10. Competition
-Motion/Sunsama/Reclaim/Todoist AI/ChatGPT optimize lists or chat. Next = execution route. List home screen = we lose.
-
-## 11. Traction (honest)
-Live prototype. Thesis locked. Next: 10 interviews on switch, trust, price. Pre-revenue.
-
-## 12. Moat
-Habit + memory of how *this* person works. Wrong Next → churn. Right Next compounds.
-
-## 13. Team
-Joseph Rivera. Shipping wedge before platform.
-
-## 14. Ask
-Capital to ship Solo: calendar + inbox + one Next + replan. GTM intros. Lean use of funds.  
-Then: **show the demo.**
+Do **not** claim context assembly works. Do **not** claim moat exists.
