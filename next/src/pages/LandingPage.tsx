@@ -6,7 +6,7 @@ import { useNext } from '@/lib/next-store'
 
 export function LandingPage() {
   const navigate = useNavigate()
-  const { enterDemo, update, hydrated } = useNext()
+  const { enterDemo, hydrated } = useNext()
 
   if (!hydrated) return null
 
@@ -35,14 +35,21 @@ export function LandingPage() {
         ))}
       </div>
 
-      <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+        <button
+          type="button"
+          onClick={() => navigate('/pitch')}
+          className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-8 font-display text-xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform hover:-translate-y-0.5"
+        >
+          VC pitch deck
+          <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+        </button>
         <button
           type="button"
           onClick={() => navigate('/vision')}
-          className="group inline-flex h-16 items-center justify-center gap-3 rounded-2xl bg-urgent px-8 font-display text-xl font-semibold text-urgent-foreground shadow-[var(--shadow-urgent)] transition-transform hover:-translate-y-0.5"
+          className="inline-flex h-16 items-center justify-center rounded-2xl border border-input px-7 font-display text-lg text-ink-soft transition-colors hover:bg-secondary/70"
         >
           CS vision deck
-          <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
         </button>
         <button
           type="button"
@@ -54,21 +61,10 @@ export function LandingPage() {
         >
           Enter Joe&apos;s day
         </button>
-        <button
-          type="button"
-          onClick={() => {
-            update({ seenLanding: true, onboarded: false, dayStarted: false })
-            navigate('/onboarding')
-          }}
-          className="inline-flex h-16 items-center justify-center rounded-2xl border border-input px-7 font-display text-lg text-ink-soft transition-colors hover:bg-secondary/70"
-        >
-          Teach me my job first
-        </button>
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground">
-        Start with the vision deck (fancy mock walkthrough), then the live day loop. Use the
-        prototype bar to simulate a Slack interrupt or reset.
+        Pitch for investors · vision deck for product story · live day for the loop.
       </p>
     </Page>
   )

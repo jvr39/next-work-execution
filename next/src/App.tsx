@@ -9,15 +9,17 @@ import { MorningPage } from '@/pages/MorningPage'
 import { OnboardingPage } from '@/pages/OnboardingPage'
 import { RolePage } from '@/pages/RolePage'
 import { TaskPage } from '@/pages/TaskPage'
+import { VcPitchDeckPage } from '@/pages/VcPitchDeckPage'
 
 function Shell() {
   const { pathname } = useLocation()
-  const vision = pathname === '/vision'
+  const cinematic = pathname === '/vision' || pathname === '/pitch'
 
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/pitch" element={<VcPitchDeckPage />} />
         <Route path="/vision" element={<CsVisionDeckPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
@@ -27,7 +29,7 @@ function Shell() {
         <Route path="/memory" element={<MemoryPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      {!vision ? (
+      {!cinematic ? (
         <>
           <DemoBar />
           <InterruptModal />

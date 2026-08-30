@@ -8,9 +8,11 @@ Not a to-do app. A click-through of Joe’s day as a CS director — role model,
 
 **Live prototype:** https://jvr39.github.io/next-work-execution/
 
-**CS vision deck (interactive mock):** https://jvr39.github.io/next-work-execution/#/vision
+**VC pitch deck:** https://jvr39.github.io/next-work-execution/#/pitch
 
-Send reviewers that URL. Then:
+**CS vision deck:** https://jvr39.github.io/next-work-execution/#/vision
+
+Send reviewers the pitch or vision URL. For the day loop:
 
 1. Tap **Enter Joe’s day**  
 2. **Start my day** → press **Next** → decide → **Done**  
