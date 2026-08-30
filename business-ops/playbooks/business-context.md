@@ -59,3 +59,12 @@ Implications:
 - **Tone:** Calm, decisive, minimal — like a chief of staff, not a productivity guru
 - **Words we use:** next, execute, clear, approve, done, mental load, admin
 - **Words we avoid:** hustle, inbox zero as the product, dashboard-first language, “another AI to-do app”
+
+## Owner communication (locked)
+
+**Dumb it down.** Whenever explaining anything to Joseph, use the simplest possible language:
+- Short sentences. Everyday words.
+- No jargon (or explain it in one plain line if unavoidable).
+- Lead with the point. Then one “why it matters.” Then what to do.
+- Prefer analogies and examples over frameworks and acronyms.
+- Assume zero interest in sounding smart — only in being clear.
